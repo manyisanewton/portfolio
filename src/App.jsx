@@ -5,6 +5,8 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import Services from './components/Services'; 
+import Education from './components/Education'; 
 import Footer from './components/Footer'; 
 import WhatsAppButton from './components/WhatsAppButton';
 
@@ -20,6 +22,8 @@ function App() {
         <main className="pt-20">
           <Home />
           <About />
+          <Services /> 
+          <Education /> 
           <Skills />
           <Projects />
           <Contact />
