@@ -18,7 +18,7 @@ const Projects = () => {
       {/* Video Background */}
       <div className="absolute top-0 left-0 w-full h-full z-0">
         <video autoPlay loop muted className="w-full h-full object-cover filter blur-sm opacity-20" src="/videos/projects-bg.mp4"></video>
-        <div className="absolute top-0 left-0 w-full h-full bg-gray-900/60"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gray-600/20"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -71,6 +71,7 @@ const Projects = () => {
                   <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
                     <FaGithub className="text-gray-400 hover:text-white transition-colors" size={24} />
                   </a>
+                  
                   <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label="Live demo">
                     <FiExternalLink className="text-gray-400 hover:text-white transition-colors" size={24} />
                   </a>

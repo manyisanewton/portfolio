@@ -9,23 +9,23 @@ export const projectData = [
     description: 'A full-stack e-commerce solution with Mpesa integration and admin dashboards.',
     tech: ['React', 'Flask', 'PostgreSQL', 'Render'],
     imageUrl: shoeStoreImg,
-    githubUrl: 'https://github.com/your-username/shoe-store', // Add your link
-    liveUrl: '#', // Add your link
+    githubUrl: 'https://github.com/manyisanewton/shoes-haven.git', 
+    liveUrl: 'https://shoes-haven.onrender.com/', 
   },
   {
     title: 'Cocktail Recipe Finder',
     description: 'A web app for browsing cocktails using TheCocktailDB API with a modern UI.',
     tech: ['React', 'Framer Motion', 'React Query'],
     imageUrl: cocktailImg,
-    githubUrl: 'https://github.com/your-username/cocktail-recipe', // Add your link
-    liveUrl: '#', // Add your link
+    githubUrl: 'https://github.com/manyisanewton/cocktail.git', 
+    liveUrl: 'https://manyisa-cocktail.onrender.com/', 
   },
   {
-    title: 'Real Estate Platform',
-    description: 'Implements real-time updates with WebSocket to showcase property listings.',
+    title: 'Cashewnuts Shop',
+    description: 'An online Shop  that sells cashewnuts  with a paypal intergration as a mode of payment.',
     tech: ['React', 'Flask', 'WebSocket', 'PostgreSQL'],
     imageUrl: realEstateImg,
-    githubUrl: 'https://github.com/your-username/real-estate-app', // Add your link
-    liveUrl: '#', // Add your link
+    githubUrl: 'https://github.com/manyisanewton/muji.git', 
+    liveUrl: 'https://muji-512d1.web.app/', 
   },
 ];
