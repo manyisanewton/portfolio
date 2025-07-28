@@ -54,7 +54,7 @@ const Footer = () => {
               </div>
               <a href="mailto:newtonmanyisa@example.com" className="flex items-center text-gray-400 hover:text-cyan-400 transition-colors" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <FaEnvelope className="mr-3" />
-                <span>newtonmanyisa@example.com</span>
+                <span>manyisanewton26@gmail.com.com</span>
               </a>
               <a href="tel:+254799425417" className="flex items-center text-gray-400 hover:text-cyan-400 transition-colors" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <FaPhone className="mr-3" />
