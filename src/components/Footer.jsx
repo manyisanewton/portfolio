@@ -16,9 +16,9 @@ const Footer = () => {
 
   const usefulLinks = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
   const socialLinks = [
-    { icon: <FaLinkedin />, url: 'https://linkedin.com/in/yourprofile' },
-    { icon: <FaGithub />, url: 'https://github.com/yourprofile' },
-    { icon: <FaXTwitter />, url: 'https://twitter.com/yourprofile' },
+    { icon: <FaLinkedin />, url: 'https://www.linkedin.com/in/manyisa-newton-114781346/' },
+    { icon: <FaGithub />, url: 'https://github.com/manyisanewton' },
+    { icon: <FaXTwitter />, url: 'https://x.com/ManyisaNewton' },
     { icon: <FaFacebookF />, url: 'https://facebook.com/yourprofile' },
   ];
 
@@ -32,16 +32,13 @@ const Footer = () => {
   ];
 
   return (
-    // ==========================================================
-    // THE FIX IS HERE: add `overflow-hidden` to the footer tag
-    // ==========================================================
+  
     <footer className="bg-gray-900 pt-16 pb-8 text-white relative font-roboto overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"></div>
       
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
           
-          {/* Column 1: Contact Details */}
           <div>
             <h3 className="text-xl font-bold mb-4 text-white">Contact Info</h3>
             <div className="flex flex-col items-center md:items-start space-y-4">
@@ -88,7 +85,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 3: Follow Me & Craftsmanship */}
           <div>
             <h3 className="text-xl font-bold mb-4 text-white">Follow Me</h3>
             <div className="flex justify-center md:justify-start space-x-4 mb-8">
@@ -137,7 +133,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright and Back to Top */}
         <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between">
           <p className="text-gray-500 text-sm mb-4 sm:mb-0">
             © {currentYear} Newton Manyisa. All Rights Reserved.
