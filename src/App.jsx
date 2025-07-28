@@ -5,6 +5,8 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import Footer from './components/Footer'; 
+import WhatsAppButton from './components/WhatsAppButton';
 
 import { CursorProvider } from './context/CursorContext';
 import CustomCursor from './components/CustomCursor';
@@ -15,9 +17,6 @@ function App() {
       <CustomCursor />
       <div className="bg-gray-900">
         <Navbar />
-        {/* ================================================== */}
-        {/* THE FIX IS HERE: add pt-20 to the main element    */}
-        {/* ================================================== */}
         <main className="pt-20">
           <Home />
           <About />
@@ -25,6 +24,8 @@ function App() {
           <Projects />
           <Contact />
         </main>
+        <Footer /> 
+        <WhatsAppButton />
       </div>
     </CursorProvider>
   );

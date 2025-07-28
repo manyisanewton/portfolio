@@ -13,6 +13,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-20 bg-gray-900 text-white relative overflow-hidden">
+    
       
       {/* ========================================================== */}
       {/* Video Background - Changes are here                    */}
@@ -22,12 +23,10 @@ const Projects = () => {
           autoPlay
           loop
           muted
-          // Increased opacity from 10 to 20
-          className="w-full h-full object-cover filter blur-sm opacity-20"
+          className="w-full h-full object-cover filter blur-sm opacity-40"
           src="/videos/projects-bg.mp4"
         ></video>
-        {/* Decreased overlay opacity from 80% to 60% */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gray-900/60"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gray-900/20"></div>
       </div>
       {/* ========================================================== */}
       {/* End of changes                                         */}
