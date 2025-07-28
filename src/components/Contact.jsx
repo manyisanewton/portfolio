@@ -3,18 +3,24 @@ import { motion } from 'framer-motion';
 import { useCursor } from '../context/CursorContext';
 import { FiSend } from 'react-icons/fi';
 
+// Step 2a: Import SweetAlert2
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+// Create a SweetAlert2 instance for React
+const MySwal = withReactContent(Swal);
+
+
 const Contact = () => {
   const { setCursorVariant } = useCursor();
   const handleMouseEnter = () => setCursorVariant('link');
   const handleMouseLeave = () => setCursorVariant('default');
 
-  // State for form fields
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  // State for submission status
-  const [status, setStatus] = useState('');
-
-  // Your Web3Forms Access Key
-  const accessKey = '798c17d6-2220-48d8-9fa2-0d56eb8bb278'; // <-- PASTE YOUR KEY HERE
+  // The old 'status' state is no longer needed
+  
+  // Remember to paste your actual Web3Forms Access Key here
+  const accessKey = '798c17d6-2220-48d8-9fa2-0d56eb8bb278';
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,27 +28,57 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus('Sending...');
 
-    const res = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
+    // Show a loading alert
+    MySwal.fire({
+      title: 'Sending...',
+      text: 'Please wait a moment.',
+      allowOutsideClick: false,
+      didOpen: () => {
+        MySwal.showLoading();
       },
-      body: JSON.stringify({
-        access_key: accessKey,
-        ...formData,
-      }),
     });
 
-    const result = await res.json();
-    if (result.success) {
-      setStatus('Message sent successfully!');
-      setFormData({ name: '', email: '', message: '' }); // Clear form
-    } else {
-      console.error("Error from Web3Forms:", result);
-      setStatus(result.message || 'An error occurred.');
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ access_key: accessKey, ...formData }),
+      });
+
+      const result = await res.json();
+      if (result.success) {
+        // Step 2b: Show success alert
+        MySwal.fire({
+          icon: 'success',
+          title: 'Message Sent!',
+          text: 'Thank you for reaching out. I will get back to you shortly.',
+          timer: 3000,
+          showConfirmButton: false,
+          background: '#1f2937', // bg-gray-800
+          color: '#ffffff'
+        });
+        setFormData({ name: '', email: '', message: '' }); // Clear form
+      } else {
+        // Step 2c: Show error alert
+        console.error("Error from Web3Forms:", result);
+        MySwal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: result.message || 'An error occurred. Please try again.',
+          background: '#1f2937',
+          color: '#ffffff'
+        });
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      MySwal.fire({
+        icon: 'error',
+        title: 'Network Error',
+        text: 'Could not send the message. Please check your connection.',
+        background: '#1f2937',
+        color: '#ffffff'
+      });
     }
   };
 
@@ -52,14 +88,12 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-800 text-white">
+    <section id="contact" className="py-24 bg-gray-800 text-white overflow-hidden">
       <div className="container mx-auto px-4">
-         <section id="about" className="py-20 bg-gray-900 text-white overflow-hidden"></section>
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Get In Touch</h2>
         <p className="text-lg text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-          Have a project in mind or just want to say hi? Feel free to reach out. I'm always open to new opportunities and collaborations.
+          Have a project in mind or just want to say hi? I'm always open to new opportunities and collaborations.
         </p>
-
         <motion.form
           onSubmit={handleSubmit}
           className="max-w-xl mx-auto"
@@ -89,7 +123,7 @@ const Contact = () => {
             </button>
           </motion.div>
         </motion.form>
-        {status && <p className="text-center mt-6 text-lg">{status}</p>}
+        {/* The old status paragraph is now removed */}
       </div>
     </section>
   );

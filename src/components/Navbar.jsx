@@ -13,7 +13,7 @@ const Navbar = () => {
   const handleMouseEnter = () => setCursorVariant('link');
   const handleMouseLeave = () => setCursorVariant('default');
 
-  const navLinks = ['Home', 'About', 'Projects', 'Skills', 'Contact'];
+const navLinks = ['Home', 'About', 'Services', 'Skills', 'Education', 'Projects', 'Contact'];
 
   const linkVariants = {
     hidden: { y: -20, opacity: 0 },
