@@ -98,12 +98,14 @@ To create a static, optimized build of the application for deployment:
 npm run build
 ```
 
-# 👤 Contact
-
-## Newton Manyisa
+# 👤 Contact Newton Manyisa
 
 ###### LiveLink: https://portfolio-1-zosc.onrender.com/
 
+###### Phone: +254799425417
+
 ###### LinkedIn: https://www.linkedin.com/in/manyisa-newton-114781346/
+
+###### Email: manyisanewton26@gmail.com
 
 ###### GitHub: https://github.com/manyisanewton
