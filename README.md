@@ -102,8 +102,8 @@ npm run build
 
 ## Newton Manyisa
 
-#### Portfolio: (https://portfolio-1-zosc.onrender.com/)
+###### LiveLink: https://portfolio-1-zosc.onrender.com/
 
-#### LinkedIn: (https://www.linkedin.com/in/manyisa-newton-114781346/)
+###### LinkedIn: https://www.linkedin.com/in/manyisa-newton-114781346/
 
-#### GitHub: (https://github.com/manyisanewton)
+###### GitHub: https://github.com/manyisanewton
