@@ -2,7 +2,7 @@
 
 A modern, animated, and fully responsive portfolio website built with React, Tailwind CSS, and Framer Motion to showcase my skills, projects, and professional journey.
 
-**Live Demo:** (https://portfolio-1-zosc.onrender.com/)
+**Live Demo:** https://portfolio-1-zosc.onrender.com/
 
 ![Portfolio Screenshot](./public/screenshot.png)
 
@@ -100,10 +100,10 @@ npm run build
 
 # 👤 Contact
 
-### Newton Manyisa
+## Newton Manyisa
 
-# Portfolio: (https://portfolio-1-zosc.onrender.com/)
+#### Portfolio: (https://portfolio-1-zosc.onrender.com/)
 
-# LinkedIn: (https://www.linkedin.com/in/manyisa-newton-114781346/)
+#### LinkedIn: (https://www.linkedin.com/in/manyisa-newton-114781346/)
 
-# GitHub: (https://github.com/manyisanewton)
+#### GitHub: (https://github.com/manyisanewton)
