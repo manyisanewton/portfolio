@@ -81,7 +81,7 @@ const About = () => {
                 Let's Talk
                 <FiSend className="ml-2 transition-transform duration-300 group-hover:rotate-12" />
               </Link>
-              <a
+              {/* <a
                 href="/NewtonManyisa_CV.pdf"
                 download
                 onMouseEnter={handleMouseEnter}
@@ -90,7 +90,7 @@ const About = () => {
               >
                 Download CV
                 <FiDownload className="ml-2 transition-transform duration-300 group-hover:translate-y-0.5" />
-              </a>
+              </a> */}
             </div>
           </motion.div>
         </div>
