@@ -20,7 +20,7 @@ const Contact = () => {
   // The old 'status' state is no longer needed
   
   // Remember to paste your actual Web3Forms Access Key here
-  const accessKey = '798c17d6-2220-48d8-9fa2-0d56eb8bb278';
+  const accessKey = '0a65ca1a-d319-4083-b22b-6d191e558381';
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
