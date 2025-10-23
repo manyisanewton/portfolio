@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { Link } from 'react-scroll';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCursor } from '../context/CursorContext';
 import { FiMenu, FiX } from 'react-icons/fi';
-// Step 1: Import your profile picture
 import profilePic from '../assets/images/newton-profile.png';
 
 const Navbar = () => {
@@ -13,77 +11,68 @@ const Navbar = () => {
   const handleMouseEnter = () => setCursorVariant('link');
   const handleMouseLeave = () => setCursorVariant('default');
 
-const navLinks = ['Home', 'About', 'Services', 'Skills', 'Education', 'Projects', 'Contact'];
+  const navLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Services', href: '#services' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Education', href: '#education' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Contact', href: '#contact' },
+  ];
 
   const linkVariants = {
     hidden: { y: -20, opacity: 0 },
-    visible: { y: 0, opacity: 1 }
+    visible: { y: 0, opacity: 1 },
   };
 
   return (
-    <nav className="bg-gray-900 bg-opacity-50 fixed w-full top-0 z-50 backdrop-filter backdrop-blur-lg font-roboto">
+    <nav className="bg-gray-900 bg-opacity-50 fixed w-full top-0 z-50 backdrop-filter backdrop-blur-lg font-roboto scroll-smooth">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          
-          {/* ========================================================== */}
-          {/* Logo - This is the updated section                      */}
-          {/* ========================================================== */}
-          <Link
-            to="home"
-            smooth={true}
-            duration={500}
-            className="cursor-pointer group" // Added 'group' for hover effect on image
+
+          {/* ✅ Logo Section */}
+          <a
+            href="#home"
+            className="cursor-pointer group flex items-center space-x-3"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <div className="flex items-center space-x-3">
-              {/* The Image */}
-              <img
-                src={profilePic}
-                alt="Newton Manyisa Logo"
-                className="h-12 w-12 rounded-full object-cover border-2 border-gray-700 group-hover:border-cyan-400 transition-colors duration-300"
-              />
-              {/* The Text */}
-              <div className="text-white text-xl hidden sm:block">
-                <span className="font-pacifico text-cyan-400">Newton</span>
-                <span className="font-semibold"> Manyisa</span>
-              </div>
+            <img
+              src={profilePic}
+              alt="Newton Manyisa Logo"
+              className="h-12 w-12 rounded-full object-cover border-2 border-gray-700 group-hover:border-cyan-400 transition-colors duration-300"
+            />
+            <div className="text-white text-xl hidden sm:block">
+              <span className="font-pacifico text-cyan-400">Newton</span>
+              <span className="font-semibold"> Manyisa</span>
             </div>
-          </Link>
-          {/* ========================================================== */}
-          {/* End of Logo Section                                      */}
-          {/* ========================================================== */}
+          </a>
 
-
-          {/* Desktop Menu */}
+          {/* ✅ Desktop Nav */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navLinks.map((link) => (
-                <Link
-                  key={link}
-                  activeClass="active"
-                  to={link.toLowerCase()}
-                  spy={true}
-                  smooth={true}
-                  offset={-80}
-                  duration={500}
+                <a
+                  key={link.name}
+                  href={link.href}
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                   className="relative text-gray-300 hover:text-white px-3 py-2 text-sm font-medium cursor-pointer"
                 >
-                  {link}
+                  {link.name}
                   <motion.div
                     className="absolute bottom-0 left-0 h-0.5 bg-cyan-400"
                     initial={{ width: 0 }}
                     whileHover={{ width: '100%' }}
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
-                </Link>
+                </a>
               ))}
             </div>
           </div>
 
-          {/* Hamburger Icon */}
+          {/* ✅ Mobile Menu Toggle */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -107,7 +96,7 @@ const navLinks = ['Home', 'About', 'Services', 'Skills', 'Education', 'Projects'
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* ✅ Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -119,23 +108,19 @@ const navLinks = ['Home', 'About', 'Services', 'Skills', 'Education', 'Projects'
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {navLinks.map((link, i) => (
                 <motion.div
-                  key={link}
+                  key={link.name}
                   variants={linkVariants}
                   initial="hidden"
                   animate="visible"
                   transition={{ duration: 0.3, delay: i * 0.1 }}
                 >
-                  <Link
-                    to={link.toLowerCase()}
-                    spy={true}
-                    smooth={true}
-                    offset={-80}
-                    duration={500}
+                  <a
+                    href={link.href}
                     onClick={() => setIsOpen(false)}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                   >
-                    {link}
-                  </Link>
+                    {link.name}
+                  </a>
                 </motion.div>
               ))}
             </div>
