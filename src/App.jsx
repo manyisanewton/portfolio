@@ -9,6 +9,8 @@ import Services from './components/Services';
 import Education from './components/Education'; 
 import Footer from './components/Footer'; 
 import WhatsAppButton from './components/WhatsAppButton';
+import Chatbot from './components/Chatbox';
+
 
 import { CursorProvider } from './context/CursorContext';
 import CustomCursor from './components/CustomCursor';
@@ -26,6 +28,7 @@ function App() {
           <Education /> 
           <Skills />
           <Projects />
+          <Chatbot />
           <Contact />
         </main>
         <Footer /> 
