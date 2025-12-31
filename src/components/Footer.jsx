@@ -17,17 +17,17 @@ const Footer = () => {
 
   const usefulLinks = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
   const socialLinks = [
-    { icon: <FaLinkedin />, url: 'https://linkedin.com/in/yourprofile' },
-    { icon: <FaGithub />, url: 'https://github.com/yourprofile' },
-    { icon: <FaXTwitter />, url: 'https://twitter.com/yourprofile' },
-    { icon: <FaFacebookF />, url: 'https://facebook.com/yourprofile' },
+    { icon: <FaLinkedin />, url: 'https://www.linkedin.com/in/manyisa-newton-114781346/', label: 'LinkedIn' },
+    { icon: <FaGithub />, url: 'https://github.com/manyisanewton', label: 'GitHub' },
+    { icon: <FaXTwitter />, url: 'https://x.com/ManyisaNewton', label: 'Twitter' },
+    { icon: <FaFacebookF />, url: 'https://facebook.com/yourprofile', label: 'Facebook' },
   ];
 
   const siteCraftsmanship = [
     { icon: <FaReact size={20}/>, name: 'React', tooltip: 'Built with a robust and scalable component architecture.' },
     { icon: <SiVite size={20}/>, name: 'Vite', tooltip: 'For a lightning-fast development experience and optimized builds.' },
     { icon: <SiTailwindcss size={20}/>, name: 'Tailwind CSS', tooltip: 'Styled with a modern, utility-first CSS framework.' },
-    { icon: <SiFramer size={20}/>, name: 'Framer Motion', tooltip: 'To create fluid and meaningful user interface animations.' },
+    { icon: <SiFramer size={20}/>, name: 'Framer Motion', tooltip: 'To create fluid and meaningful UI animations.' },
     { icon: <FaBolt size={20}/>, name: 'Performance', tooltip: 'Optimized for speed and a great user experience.' },
     { icon: <FiEye size={20}/>, name: 'Accessibility', tooltip: 'Designed with accessibility (a11y) in mind.' },
   ];
@@ -40,6 +40,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
           
           <div>
+            <section aria-label="Contact Information">
             <h3 className="text-xl font-bold mb-4 text-white">Contact Info</h3>
             <div className="flex flex-col items-center md:items-start space-y-4">
               <div className="flex items-center space-x-2">
@@ -49,42 +50,58 @@ const Footer = () => {
                 </span>
                 <span className="text-green-400 font-semibold">Available for Hire</span>
               </div>
-              <a href="mailto:newtonmanyisa@example.com" className="flex items-center text-gray-400 hover:text-cyan-400 transition-colors" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                <FaEnvelope className="mr-3" />
-                <span>newtonmanyisa@example.com</span>
+              <a
+                href="mailto:manyisanewton26@gmail.com"
+                className="flex items-center text-gray-400 hover:text-cyan-400 transition-colors"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                aria-label="Email Newton Manyisa"
+              >
+                <FaEnvelope className="mr-3" aria-hidden="true" />
+                <span>manyisanewton26@gmail.com</span>
               </a>
-              <a href="tel:+254799425417" className="flex items-center text-gray-400 hover:text-cyan-400 transition-colors" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                <FaPhone className="mr-3" />
+              <a
+                href="tel:+254799425417"
+                className="flex items-center text-gray-400 hover:text-cyan-400 transition-colors"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                aria-label="Call Newton Manyisa"
+              >
+                <FaPhone className="mr-3" aria-hidden="true" />
                 <span>+254 799 425417</span>
               </a>
               <div className="flex items-center text-gray-400">
-                <FaMapMarkerAlt className="mr-3" />
+                <FaMapMarkerAlt className="mr-3" aria-hidden="true" />
                 <span>Nairobi, Kenya</span>
               </div>
             </div>
+            </section>
           </div>
 
           <div>
+            <nav aria-label="Useful Links">
             <h3 className="text-xl font-bold mb-4 text-white">Useful Links</h3>
             <ul className="space-y-3">
               {usefulLinks.map(link => (
                 <li key={link}>
-                  <Link 
-                    to={link.toLowerCase()} 
-                    smooth={true} 
-                    duration={500} 
-                    className="text-gray-400 hover:text-cyan-400 transition-colors cursor-pointer" 
-                    onMouseEnter={handleMouseEnter} 
+                  <Link
+                    to={link.toLowerCase()}
+                    smooth={true}
+                    duration={500}
+                    onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
+                    className="text-gray-400 hover:text-cyan-400 transition-colors cursor-pointer"
                   >
                     {link}
                   </Link>
                 </li>
               ))}
             </ul>
+            </nav>
           </div>
 
           <div>
+            <section aria-label="Follow Me on Social Media">
             <h3 className="text-xl font-bold mb-4 text-white">Follow Me</h3>
             <div className="flex justify-center md:justify-start space-x-4 mb-8">
               {socialLinks.map((link, index) => (
@@ -93,13 +110,14 @@ const Footer = () => {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`Visit my ${link.label} profile`}
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                   className="bg-gray-800 p-3 rounded-full text-gray-400"
                   whileHover={{ y: -5, scale: 1.1, backgroundColor: '#06b6d4', color: '#ffffff', boxShadow: '0 0 15px rgba(6, 182, 212, 0.6)'}}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >
-                  <div className="text-xl">{link.icon}</div>
+                  <div className="text-xl" aria-hidden="true">{link.icon}</div>
                 </motion.a>
               ))}
             </div>
@@ -108,7 +126,7 @@ const Footer = () => {
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
               {siteCraftsmanship.map((tech) => (
                 <div key={tech.name} className="relative group flex items-center" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                  <div className="bg-gray-800 p-3 rounded-full text-cyan-400">{tech.icon}</div>
+                  <div className="bg-gray-800 p-3 rounded-full text-cyan-400" aria-hidden="true">{tech.icon}</div>
                   <div className="absolute bottom-full mb-2 w-max max-w-xs p-2 text-sm bg-gray-700 text-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
                     {tech.tooltip}
                     <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-gray-700"></div>
@@ -116,6 +134,7 @@ const Footer = () => {
                 </div>
               ))}
             </div>
+            </section>
           </div>
         </div>
 

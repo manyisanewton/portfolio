@@ -1,29 +1,34 @@
 // api/dialogflow.js
 import dialogflow from '@google-cloud/dialogflow';
 
-const credentials = {
-  client_email: process.env.GCP_CLIENT_EMAIL,
-  private_key: process.env.GCP_PRIVATE_KEY.replace(/\\n/g, '\n'),
-};
-const projectId = process.env.GCP_PROJECT_ID;
-
-const sessionClient = new dialogflow.SessionsClient({
-  projectId,
-  credentials,
-});
-
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).send({ error: 'Method Not Allowed' });
   }
 
   try {
+    const { GCP_CLIENT_EMAIL, GCP_PRIVATE_KEY, GCP_PROJECT_ID } = process.env;
+    if (!GCP_CLIENT_EMAIL || !GCP_PRIVATE_KEY || !GCP_PROJECT_ID) {
+      console.error('Missing Dialogflow environment variables.');
+      return res.status(500).send({ error: 'Server configuration error.' });
+    }
+
+    const credentials = {
+      client_email: GCP_CLIENT_EMAIL,
+      private_key: GCP_PRIVATE_KEY.replace(/\\n/g, '\n'),
+    };
+
+    const sessionClient = new dialogflow.SessionsClient({
+      projectId: GCP_PROJECT_ID,
+      credentials,
+    });
+
     const { query, sessionId } = req.body;
     if (!query || !sessionId) {
       return res.status(400).send({ error: 'Query and sessionId are required.' });
     }
 
-    const sessionPath = sessionClient.projectAgentSessionPath(projectId, sessionId);
+    const sessionPath = sessionClient.projectAgentSessionPath(GCP_PROJECT_ID, sessionId);
     const request = {
       session: sessionPath,
       queryInput: { text: { text: query, languageCode: 'en-US' } },
