@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll'; // Import Link for smooth scrolling
 import { useCursor } from '../context/CursorContext';
-import profilePic from '../assets/images/newton-profile1.png'; // Make sure this is the correct path
+import profilePic from '../assets/images/portfolio image.jpeg'; // Make sure this is the correct path
 import { FiDownload, FiSend } from 'react-icons/fi';
 
 // Data for the new stats section
@@ -32,14 +32,14 @@ const About = () => {
             viewport={{ once: true }}
           >
             {/* The Elliptical Glow - works great with a rectangle too */}
-            <div className="absolute bottom-0 w-full h-56 bg-violet-600 rounded-full blur-3xl opacity-20"></div>
+            <div className="absolute bottom-0 w-full h-64 md:h-72 bg-violet-600 rounded-full blur-3xl opacity-20"></div>
             
             {/* --- THE UPGRADED IMAGE --- */}
             <img
               src={profilePic}
               alt="Newton Manyisa"
               // Added rounded-md (5px), border, and shadow for a framed look
-              className="relative z-10 w-full max-w-sm h-auto object-cover rounded-md border-2 border-gray-700 shadow-2xl"
+              className="relative z-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[420px] object-cover rounded-md border-2 border-gray-700 shadow-2xl"
             />
           </motion.div>
 
