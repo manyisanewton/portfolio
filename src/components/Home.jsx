@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiArrowDown } from 'react-icons/fi';
 import profilePic from '../assets/images/newton-profile.png';
@@ -6,6 +6,7 @@ import { useCursor } from '../context/CursorContext';
 
 const Home = () => {
   const { setCursorVariant } = useCursor();
+  const [lighthouseData, setLighthouseData] = useState(null);
 
   const handleMouseEnterLink = () => setCursorVariant('link');
   const handleMouseEnterText = () => setCursorVariant('text');
@@ -19,6 +20,29 @@ const Home = () => {
       section.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  useEffect(() => {
+    let isMounted = true;
+    fetch('/lighthouse.json')
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (isMounted && data) {
+          setLighthouseData(data);
+        }
+      })
+      .catch(() => {});
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const scoreItems = [
+    { label: 'Performance', key: 'performance', color: 'text-cyan-300' },
+    { label: 'Accessibility', key: 'accessibility', color: 'text-green-300' },
+    { label: 'Best Practices', key: 'bestPractices', color: 'text-yellow-300' },
+    { label: 'SEO', key: 'seo', color: 'text-pink-300' },
+  ];
 
   return (
     <section
@@ -70,6 +94,25 @@ const Home = () => {
               View My Work
               <FiArrowDown className="ml-2 transition-transform duration-300 group-hover:translate-y-1" />
             </a>
+
+            <div className="mt-6 inline-flex items-start gap-4 rounded-2xl border border-gray-700/60 bg-gray-800/60 px-4 py-3 backdrop-blur-sm">
+              <div className="flex flex-col gap-1">
+                <span className="text-xs uppercase tracking-widest text-cyan-300/80">Lighthouse Verified</span>
+                <span className="text-xs text-gray-400">
+                  {lighthouseData?.date ? `Checked ${lighthouseData.date}` : 'Checking...'}
+                </span>
+              </div>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+                {scoreItems.map((item) => (
+                  <div key={item.key} className="flex items-center justify-between gap-3">
+                    <span className="text-gray-300">{item.label}</span>
+                    <span className={`font-semibold ${item.color}`}>
+                      {lighthouseData?.scores?.[item.key] ?? '—'}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </motion.div>
 
           {/* Right Side: Image */}

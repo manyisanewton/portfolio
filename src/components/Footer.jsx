@@ -138,7 +138,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between">
+        <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4 pr-24 sm:pr-32">
           <p className="text-gray-500 text-sm mb-4 sm:mb-0">&copy; {currentYear} Newton Manyisa. All Rights Reserved.</p>
           <Link
             to="home"

@@ -1,16 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Hide the default system cursor */
-body {
-  cursor: none;
-}
-
-/* Apply a pointer cursor for links/buttons, even though the OS cursor is hidden */
-a,
-button,
-[role="button"],
-input[type="submit"] {
-  cursor: none;
-}

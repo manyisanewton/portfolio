@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
@@ -13,12 +13,12 @@ import Chatbot from './components/Chatbox';
 
 
 import { CursorProvider } from './context/CursorContext';
-import CustomCursor from './components/CustomCursor';
 
 function App() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   return (
     <CursorProvider>
-      <CustomCursor />
       <div className="bg-gray-900">
         <Navbar />
         <main className="pt-5">
@@ -28,11 +28,11 @@ function App() {
           <Education /> 
           <Skills />
           <Projects />
-          <Chatbot />
+          <Chatbot isOpen={isChatOpen} setIsOpen={setIsChatOpen} />
           <Contact />
         </main>
         <Footer /> 
-        <WhatsAppButton />
+        <WhatsAppButton isChatOpen={isChatOpen} />
       </div>
     </CursorProvider>
   );

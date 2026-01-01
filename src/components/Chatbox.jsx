@@ -5,8 +5,10 @@ import { FiMessageSquare, FiX, FiSend } from 'react-icons/fi';
 import { v4 as uuidv4 } from 'uuid';
 import { useCursor } from '../context/CursorContext';
 
-const Chatbot = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const Chatbot = ({ isOpen: controlledIsOpen, setIsOpen: controlledSetIsOpen }) => {
+  const [uncontrolledIsOpen, setUncontrolledIsOpen] = useState(false);
+  const isOpen = controlledIsOpen ?? uncontrolledIsOpen;
+  const setIsOpen = controlledSetIsOpen ?? setUncontrolledIsOpen;
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -57,16 +59,22 @@ const Chatbot = () => {
 
   return (
     <>
-      <motion.button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-24 right-6 z-50 bg-cyan-500 w-16 h-16 rounded-full flex items-center justify-center text-white shadow-xl"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <FiMessageSquare size={32} />
-      </motion.button>
+      {!isOpen && (
+        <motion.button
+          onClick={() => setIsOpen(true)}
+          className="fixed bottom-24 right-6 z-50 bg-cyan-500 w-16 h-16 rounded-full flex items-center justify-center text-white shadow-xl"
+          initial={{ opacity: 0, x: 24, boxShadow: '0 0 0 rgba(6,182,212,0)' }}
+          animate={{ opacity: 1, x: 0, boxShadow: '0 0 24px rgba(6,182,212,0.6)', rotate: [0, 0, -2, 2, 0], y: [0, 0, -2, 0, 0] }}
+          transition={{ type: 'tween', duration: 0.6, ease: 'easeInOut', repeat: 6, repeatDelay: 4 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          aria-label="Open chat"
+        >
+          <FiMessageSquare size={32} />
+        </motion.button>
+      )}
 
       <AnimatePresence>
         {isOpen && (
@@ -75,11 +83,22 @@ const Chatbot = () => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: "100%", opacity: 0 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="fixed bottom-0 right-0 md:bottom-8 md:right-8 w-full h-full md:w-[400px] md:h-[600px] bg-gray-800 rounded-lg shadow-2xl flex flex-col z-50 overflow-hidden"
+            className="fixed bottom-0 right-0 md:bottom-8 md:right-8 w-full h-full md:w-[360px] md:h-[520px] bg-gray-800 rounded-lg shadow-2xl flex flex-col z-50 overflow-hidden border border-gray-700"
           >
             <header className="bg-gray-900 p-4 flex justify-between items-center text-white">
-              <h3 className="text-xl font-bold">Newton's Assistant</h3>
-              <button onClick={() => setIsOpen(false)} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}><FiX size={24} /></button>
+              <h3 className="text-xl font-bold">
+                <span className="bg-cyan-600/20 text-cyan-200 px-3 py-1 rounded-full">Newton's Assistant</span>
+              </h3>
+              <button
+                onClick={() => setIsOpen(false)}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                className="p-2 rounded-full hover:bg-gray-800 transition-colors"
+                aria-label="Close chat"
+                title="Close"
+              >
+                <FiX size={20} />
+              </button>
             </header>
 
             <div className="flex-1 p-4 overflow-y-auto">
