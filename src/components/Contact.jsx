@@ -88,35 +88,39 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gray-800 text-white overflow-hidden">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Get In Touch</h2>
-        <p className="text-lg text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-          Have a project in mind or just want to say hi? I'm always open to new opportunities and collaborations.
+    <section id="contact" className="section-shell bg-slate-950 text-white">
+      <div className="section-wrap">
+        <span className="section-kicker">Contact</span>
+        <h2 className="section-heading max-w-3xl">Let&apos;s build something clear, usable, and ready to ship.</h2>
+        <p className="section-copy">
+          Looking for a developer who can shape the interface, build the system behind it, and support delivery from setup to launch? Let&apos;s talk.
         </p>
         <motion.form
           onSubmit={handleSubmit}
-          className="max-w-xl mx-auto"
+          className="surface-panel mx-auto mt-12 max-w-3xl p-6 sm:p-8"
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
           transition={{ staggerChildren: 0.2 }}
         >
+          <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <motion.div variants={inputVariants}>
+              <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required className="w-full rounded-md border border-white/10 bg-slate-950 px-4 py-4 text-white placeholder:text-slate-500 focus:outline-none transition-colors" style={{ boxShadow: 'none' }} onFocus={(e) => (e.target.style.borderColor = '#f15a24')} onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')} />
+            </motion.div>
+            <motion.div variants={inputVariants}>
+              <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required className="w-full rounded-md border border-white/10 bg-slate-950 px-4 py-4 text-white placeholder:text-slate-500 focus:outline-none transition-colors" style={{ boxShadow: 'none' }} onFocus={(e) => (e.target.style.borderColor = '#f15a24')} onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')} />
+            </motion.div>
+          </div>
           <motion.div variants={inputVariants} className="mb-6">
-            <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required className="w-full p-4 bg-gray-900 rounded-lg border border-gray-700 focus:border-cyan-400 focus:ring-cyan-400 focus:outline-none transition-colors" />
-          </motion.div>
-          <motion.div variants={inputVariants} className="mb-6">
-            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required className="w-full p-4 bg-gray-900 rounded-lg border border-gray-700 focus:border-cyan-400 focus:ring-cyan-400 focus:outline-none transition-colors" />
-          </motion.div>
-          <motion.div variants={inputVariants} className="mb-6">
-            <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Your Message" rows="6" required className="w-full p-4 bg-gray-900 rounded-lg border border-gray-700 focus:border-cyan-400 focus:ring-cyan-400 focus:outline-none transition-colors"></textarea>
+            <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Tell me about the product, team, or problem you want solved" rows="6" required className="w-full rounded-md border border-white/10 bg-slate-950 px-4 py-4 text-white placeholder:text-slate-500 focus:outline-none transition-colors" style={{ boxShadow: 'none' }} onFocus={(e) => (e.target.style.borderColor = '#f15a24')} onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}></textarea>
           </motion.div>
           <motion.div variants={inputVariants} className="text-center">
             <button
               type="submit"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className="group inline-flex items-center px-8 py-4 bg-cyan-500 hover:bg-cyan-600 text-white font-bold rounded-lg cursor-pointer transition-all duration-300"
+              className="group inline-flex items-center rounded-md px-8 py-4 font-semibold text-white transition-all duration-300 hover:opacity-95"
+              style={{ backgroundColor: '#f15a24' }}
             >
               Send Message
               <FiSend className="ml-2 transition-transform duration-300 group-hover:rotate-45" />

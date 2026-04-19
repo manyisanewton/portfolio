@@ -1,28 +1,38 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useCursor } from '../context/CursorContext';
-import { FaReact, FaServer, FaCode, FaDatabase } from 'react-icons/fa';
+import { FaReact, FaServer, FaCode, FaDatabase, FaChalkboardTeacher, FaTools } from 'react-icons/fa';
 
 const servicesData = [
   {
     icon: <FaReact />,
     title: 'Frontend Development',
-    description: 'Crafting responsive, dynamic, and intuitive user interfaces with React, ensuring a seamless user experience across all devices.',
+    description: 'Building sleek, responsive, and interactive interfaces with React, Next.js, Angular, Tailwind CSS, Framer Motion, and modern component-driven patterns.',
   },
   {
     icon: <FaServer />,
-    title: 'Backend Development',
-    description: 'Building robust, scalable, and secure server-side applications and APIs using Python (Flask) and C#.',
+    title: 'Backend & API Development',
+    description: 'Developing scalable backend services, RESTful APIs, and business logic using Flask, PHP, C#, PostgreSQL, and real-time integrations.',
   },
   {
     icon: <FaCode />,
     title: 'Full-Stack Solutions',
-    description: 'Developing end-to-end applications from the database to the browser, integrating frontend and backend into a cohesive product.',
+    description: 'Delivering end-to-end applications from database design to production-ready interfaces, with reusable components, dashboards, auth flows, and admin tools.',
   },
   {
     icon: <FaDatabase />,
-    title: 'Database & ORM',
-    description: 'Designing and managing efficient database schemas with PostgreSQL and implementing powerful data layers using SQLAlchemy.',
+    title: 'ERP & Business Systems',
+    description: 'Customizing ERPNext setups, aligning workflows to operations, and supporting digital processes that improve how teams work across the business.',
+  },
+  {
+    icon: <FaTools />,
+    title: 'Deployment & Technical Support',
+    description: 'Setting up hosting environments, working with cPanel and servers, handling troubleshooting, and supporting deployments that stay reliable after launch.',
+  },
+  {
+    icon: <FaChalkboardTeacher />,
+    title: 'Training & Mentorship',
+    description: 'Teaching technical concepts clearly, mentoring developers, supporting system adoption, and helping teams build confidence with tools and workflows.',
   },
 ];
 
@@ -45,20 +55,16 @@ const Services = () => {
   const handleMouseLeave = () => setCursorVariant('default');
 
   return (
-    <section id="services" className="py-24 bg-gray-900 text-white relative overflow-hidden">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-radial from-gray-800/30 via-gray-900 to-gray-900"></div>
-      </div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">What I Can Do For You</h2>
-        <p className="text-lg text-gray-400 text-center mb-16 max-w-2xl mx-auto">
-          I offer a range of services to bring your digital projects to life.
+    <section id="services" className="section-shell bg-slate-950 text-white">
+      <div className="section-wrap relative z-10">
+        <span className="section-kicker">Services</span>
+        <h2 className="section-heading max-w-3xl">From interface work to business systems and delivery support.</h2>
+        <p className="section-copy">
+          I work across product delivery, business systems, deployment, and technical mentoring to move projects from idea to dependable execution.
         </p>
 
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -68,13 +74,13 @@ const Services = () => {
             <motion.div
               key={index}
               variants={cardVariants}
-              className="bg-gray-800/50 p-8 rounded-lg text-center backdrop-blur-sm border border-gray-700/50"
+              className="surface-panel flex min-h-[260px] flex-col p-6 sm:p-7"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="text-cyan-400 text-5xl mb-6 inline-block">{service.icon}</div>
-              <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-              <p className="text-gray-300">{service.description}</p>
+              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-md border accent-warm-border accent-warm-tint text-2xl accent-warm-text">{service.icon}</div>
+              <h3 className="text-xl font-semibold text-white sm:text-2xl">{service.title}</h3>
+              <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">{service.description}</p>
             </motion.div>
           ))}
         </motion.div>

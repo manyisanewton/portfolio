@@ -15,7 +15,7 @@ const Footer = () => {
   
   const currentYear = new Date().getFullYear();
 
-  const usefulLinks = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
+  const usefulLinks = ['Home', 'About', 'Services', 'Skills', 'Projects', 'Contact'];
   const socialLinks = [
     { icon: <FaLinkedin />, url: 'https://www.linkedin.com/in/manyisa-newton-114781346/', label: 'LinkedIn' },
     { icon: <FaGithub />, url: 'https://github.com/manyisanewton', label: 'GitHub' },
@@ -33,16 +33,16 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 pt-16 pb-8 text-white relative font-roboto overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"></div>
+    <footer className="relative overflow-hidden border-t border-white/10 bg-slate-950 pb-8 pt-16 text-white">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-orange-400/60 to-transparent"></div>
       
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+      <div className="section-wrap">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:text-left">
           
           <div>
             <section aria-label="Contact Information">
             <h3 className="text-xl font-bold mb-4 text-white">Contact Info</h3>
-            <div className="flex flex-col items-center md:items-start space-y-4">
+            <div className="flex flex-col items-center space-y-4 md:items-start">
               <div className="flex items-center space-x-2">
                 <span className="relative flex h-3 w-3">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -52,7 +52,7 @@ const Footer = () => {
               </div>
               <a
                 href="mailto:manyisanewton26@gmail.com"
-                className="flex items-center text-gray-400 hover:text-cyan-400 transition-colors"
+                className="flex items-center text-slate-400 hover:text-orange-300 transition-colors"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 aria-label="Email Newton Manyisa"
@@ -62,7 +62,7 @@ const Footer = () => {
               </a>
               <a
                 href="tel:+254799425417"
-                className="flex items-center text-gray-400 hover:text-cyan-400 transition-colors"
+                className="flex items-center text-slate-400 hover:text-orange-300 transition-colors"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 aria-label="Call Newton Manyisa"
@@ -70,7 +70,7 @@ const Footer = () => {
                 <FaPhone className="mr-3" aria-hidden="true" />
                 <span>+254 799 425417</span>
               </a>
-              <div className="flex items-center text-gray-400">
+              <div className="flex items-center text-slate-400">
                 <FaMapMarkerAlt className="mr-3" aria-hidden="true" />
                 <span>Nairobi, Kenya</span>
               </div>
@@ -90,7 +90,7 @@ const Footer = () => {
                     duration={500}
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
-                    className="text-gray-400 hover:text-cyan-400 transition-colors cursor-pointer"
+                    className="text-slate-400 hover:text-orange-300 transition-colors cursor-pointer"
                   >
                     {link}
                   </Link>
@@ -103,7 +103,7 @@ const Footer = () => {
           <div>
             <section aria-label="Follow Me on Social Media">
             <h3 className="text-xl font-bold mb-4 text-white">Follow Me</h3>
-            <div className="flex justify-center md:justify-start space-x-4 mb-8">
+            <div className="mb-8 flex justify-center space-x-4 md:justify-start">
               {socialLinks.map((link, index) => (
                 <motion.a
                   key={index}
@@ -113,7 +113,7 @@ const Footer = () => {
                   aria-label={`Visit my ${link.label} profile`}
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
-                  className="bg-gray-800 p-3 rounded-full text-gray-400"
+                  className="rounded-full border border-white/10 bg-white/5 p-3 text-slate-400"
                   whileHover={{ y: -5, scale: 1.1, backgroundColor: '#06b6d4', color: '#ffffff', boxShadow: '0 0 15px rgba(6, 182, 212, 0.6)'}}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >
@@ -123,13 +123,13 @@ const Footer = () => {
             </div>
 
             <h3 className="text-xl font-bold mb-4 text-white">Digital Craftsmanship</h3>
-            <div className="flex flex-wrap justify-center md:justify-start gap-4">
+            <div className="flex flex-wrap justify-center gap-4 md:justify-start">
               {siteCraftsmanship.map((tech) => (
                 <div key={tech.name} className="relative group flex items-center" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                  <div className="bg-gray-800 p-3 rounded-full text-cyan-400" aria-hidden="true">{tech.icon}</div>
-                  <div className="absolute bottom-full mb-2 w-max max-w-xs p-2 text-sm bg-gray-700 text-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-50">
+                  <div className="rounded-full border accent-warm-border accent-warm-tint p-3 accent-warm-text" aria-hidden="true">{tech.icon}</div>
+                  <div className="pointer-events-none absolute bottom-full z-50 mb-2 w-max max-w-xs rounded-md bg-slate-800 p-2 text-sm text-white shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     {tech.tooltip}
-                    <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-gray-700"></div>
+                    <div className="absolute left-1/2 top-full h-0 w-0 -translate-x-1/2 border-x-4 border-x-transparent border-t-4 border-t-slate-800"></div>
                   </div>
                 </div>
               ))}
@@ -138,13 +138,13 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4 pr-24 sm:pr-32">
-          <p className="text-gray-500 text-sm mb-4 sm:mb-0">&copy; {currentYear} Newton Manyisa. All Rights Reserved.</p>
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-center sm:flex-row sm:text-left">
+          <p className="mb-4 text-sm text-slate-500 sm:mb-0">&copy; {currentYear} Newton Manyisa. All Rights Reserved.</p>
           <Link
             to="home"
             smooth={true}
             duration={800}
-            className="group flex items-center text-gray-400 hover:text-cyan-400 transition-colors cursor-pointer"
+            className="group flex items-center text-slate-400 transition-colors cursor-pointer hover:text-orange-300"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >

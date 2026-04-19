@@ -13,26 +13,24 @@ const Projects = () => {
   const handleMouseLeave = () => setCursorVariant('default');
 
   return (
-    <section id="projects" className="py-24 bg-gray-900 text-white relative overflow-hidden">
+    <section id="projects" className="section-shell relative overflow-hidden bg-slate-900 text-white">
       
       {/* Video Background */}
       <div className="absolute top-0 left-0 w-full h-full z-0">
-        <video autoPlay loop muted className="w-full h-full object-cover filter blur-sm opacity-20" src="/videos/projects-bg.mp4"></video>
-        <div className="absolute top-0 left-0 w-full h-full bg-gray-600/20"></div>
+        <video autoPlay loop muted className="h-full w-full object-cover opacity-15" src="/videos/projects-bg.mp4"></video>
+        <div className="absolute top-0 left-0 h-full w-full bg-slate-950/80"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">My Recent Work</h2>
+      <div className="section-wrap relative z-10">
+        <span className="section-kicker">Projects</span>
+        <h2 className="section-heading max-w-3xl">Selected work across commerce, content, and interactive product experiences.</h2>
+        <p className="section-copy">These projects show how I approach interface quality, API integration, user flow, and production-minded frontend execution.</p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           {projectData.map((project, index) => (
-            // ==========================================================
-            // THE FIX IS HERE: Increased the card height
-            // From h-96 to h-[32rem]
-            // ==========================================================
             <motion.div
               key={index}
-              className="group relative h-[32rem] rounded-lg overflow-hidden shadow-xl"
+              className="group surface-panel relative overflow-hidden"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -40,40 +38,30 @@ const Projects = () => {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              {/* --- Full Bleed Background Image --- */}
               <img 
                 src={project.imageUrl} 
                 alt={project.title}
-                // The `object-cover` will now work as intended because the container has the correct aspect ratio
-                className="absolute top-0 left-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-72"
               />
               
-              {/* --- Gradient Overlay for Readability --- */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent"></div>
-
-              {/* --- Content Area on Top --- */}
-              <div className="relative h-full flex flex-col justify-end p-6">
-                
-                {/* Details that appear on hover */}
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-400 ease-in-out">
-                  <p className="text-gray-300 mb-4 text-sm">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex min-h-[280px] flex-col p-6">
+                <div className="flex-1">
+                  <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
+                  <p className="mt-4 text-sm leading-7 text-slate-300">{project.description}</p>
+                  <div className="mt-5 flex flex-wrap gap-2">
                     {project.tech.map(t => (
-                      <span key={t} className="bg-cyan-900 text-cyan-300 text-xs font-semibold px-2.5 py-0.5 rounded-full">{t}</span>
+                      <span key={t} className="rounded-full border accent-warm-border accent-warm-tint px-2.5 py-1 text-xs font-semibold text-orange-200">{t}</span>
                     ))}
                   </div>
                 </div>
 
-                {/* Always visible title and links */}
-                <h3 className="text-2xl font-bold text-white mb-4">{project.title}</h3>
-                
-                <div className="flex space-x-4">
-                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
-                    <FaGithub className="text-gray-400 hover:text-white transition-colors" size={24} />
+                <div className="mt-6 flex items-center gap-5 border-t border-white/10 pt-5">
+                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub repository" className="text-slate-400 transition-colors hover:text-white">
+                    <FaGithub size={22} />
                   </a>
                   
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label="Live demo">
-                    <FiExternalLink className="text-gray-400 hover:text-white transition-colors" size={24} />
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label="Live demo" className="text-slate-400 transition-colors hover:text-white">
+                    <FiExternalLink size={22} />
                   </a>
                 </div>
               </div>

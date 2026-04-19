@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-scroll'; // Import Link for smooth scrolling
 import { useCursor } from '../context/CursorContext';
 import profilePic from '../assets/images/portfolio image.jpeg'; // Make sure this is the correct path
-import { FiDownload, FiSend } from 'react-icons/fi';
+import { FiSend } from 'react-icons/fi';
 
 // Data for the new stats section
 const statsData = [
-  { value: '2+', label: 'Years of Experience' },
-  { value: '15+', label: 'Projects Completed' },
-  { value: '10+', label: 'Technologies Mastered' },
+  { value: '2+', label: 'Years Building Products' },
+  { value: '15+', label: 'Projects Delivered' },
+  { value: '4', label: 'Core Delivery Areas' },
 ];
 
 
@@ -19,78 +19,73 @@ const About = () => {
   const handleMouseLeave = () => setCursorVariant('default');
 
   return (
-    <section id="about" className="py-24 bg-gray-900 text-white overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+    <section id="about" className="section-shell bg-slate-900 text-white">
+      <div className="section-wrap">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(280px,0.85fr)_minmax(0,1.15fr)] lg:gap-16">
           
           {/* Left Column: Image and Glow Effect */}
           <motion.div
-            className="relative flex justify-center"
+            className="relative order-2 flex justify-center lg:order-1"
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: 'easeInOut' }}
             viewport={{ once: true }}
           >
-            {/* The Elliptical Glow - works great with a rectangle too */}
-            <div className="absolute bottom-0 w-full h-64 md:h-72 bg-violet-600 rounded-full blur-3xl opacity-20"></div>
-            
-            {/* --- THE UPGRADED IMAGE --- */}
-            <img
-              src={profilePic}
-              alt="Newton Manyisa"
-              // Added rounded-md (5px), border, and shadow for a framed look
-              className="relative z-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-64 sm:h-72 md:h-80 lg:h-96 xl:h-[420px] object-cover rounded-md border-2 border-gray-700 shadow-2xl"
-            />
+            <div className="surface-panel w-full max-w-md p-4">
+              <img
+                src={profilePic}
+                alt="Newton Manyisa"
+                className="h-72 w-full rounded-lg object-cover sm:h-80 lg:h-[460px]"
+              />
+            </div>
           </motion.div>
 
           {/* Right Column: Text Content */}
           <motion.div
-            className="flex flex-col items-start"
+            className="order-1 flex flex-col items-start lg:order-2"
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: 'easeInOut' }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold uppercase mb-4">
-              <span className="text-cyan-400">About</span> Me
+            <span className="section-kicker">About</span>
+            <h2 className="section-heading">
+              Full-stack product work with a strong frontend edge.
             </h2>
-            <p className="text-lg text-gray-300 leading-relaxed mb-8">
-              A Full-Stack Software Developer with solid experience in building scalable web applications using Python, Flask, React, and more. I'm proficient in Agile environments and passionate about turning complex requirements into user-focused solutions.
+            <p className="section-copy">
+              I am a creative and performance-driven full-stack developer with strong frontend expertise and hands-on experience building responsive web applications, business systems, and deployment-ready platforms. My work spans React, Next.js, Angular, Tailwind CSS, Framer Motion, Flask, PHP, C#, ERPNext setup, cPanel environments, server support, and API integrations. I enjoy turning business requirements into polished user experiences while keeping the systems behind them maintainable, scalable, and dependable.
             </p>
 
-            {/* --- NEW STATS SECTION --- */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mb-10 w-full">
+            <div className="mt-8 grid w-full grid-cols-1 gap-4 sm:grid-cols-3">
               {statsData.map(stat => (
-                <div key={stat.label} className="text-center">
-                  <span className="text-4xl font-bold text-cyan-400">{stat.value}</span>
-                  <p className="text-gray-400 text-sm">{stat.label}</p>
+                <div key={stat.label} className="surface-panel p-5 text-left">
+                  <span className="text-3xl font-semibold accent-warm-text">{stat.value}</span>
+                  <p className="mt-2 text-sm uppercase tracking-[0.16em] text-slate-400">{stat.label}</p>
                 </div>
               ))}
             </div>
 
-            {/* --- NEW DUAL CTA BUTTONS --- */}
-            <div className="flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 to="contact" // Scrolls to the contact section
                 smooth={true}
                 duration={500}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className="group inline-flex items-center px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white font-bold rounded-lg cursor-pointer transition-all duration-300"
+                className="group inline-flex items-center rounded-md px-6 py-3 font-semibold text-white transition-all duration-300 hover:opacity-95"
+                style={{ backgroundColor: '#f15a24' }}
               >
                 Let's Talk
                 <FiSend className="ml-2 transition-transform duration-300 group-hover:rotate-12" />
               </Link>
-              {/* <a
-                href="/NewtonManyisa_CV.pdf"
-                download
+              <a
+                href="#projects"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className="group inline-flex items-center px-6 py-3 bg-transparent border-2 border-gray-600 hover:bg-gray-700/50 hover:border-gray-500 text-white font-bold rounded-lg cursor-pointer transition-all duration-300"
+                className="inline-flex items-center rounded-md border border-white/15 px-6 py-3 font-semibold text-slate-200 transition-colors duration-300 hover:text-white accent-warm-border"
               >
-                Download CV
-                <FiDownload className="ml-2 transition-transform duration-300 group-hover:translate-y-0.5" />
-              </a> */}
+                Explore Projects
+              </a>
             </div>
           </motion.div>
         </div>

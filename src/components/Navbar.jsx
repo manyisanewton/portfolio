@@ -16,7 +16,7 @@ const Navbar = () => {
     { name: 'About', href: '#about' },
     { name: 'Services', href: '#services' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Education', href: '#education' },
+    { name: 'Journey', href: '#education' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -27,9 +27,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-900 bg-opacity-50 fixed w-full top-0 z-50 backdrop-filter backdrop-blur-lg font-roboto scroll-smooth">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+    <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/75 backdrop-blur-xl">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between gap-6">
 
           {/* ✅ Logo Section */}
           <a
@@ -41,30 +41,30 @@ const Navbar = () => {
             <img
               src={profilePic}
               alt="Newton Manyisa Logo"
-              className="h-12 w-12 rounded-full object-cover border-2 border-gray-700 group-hover:border-cyan-400 transition-colors duration-300"
+              className="h-11 w-11 rounded-full object-cover border border-white/15 group-hover:border-cyan-400 transition-colors duration-300"
             />
-            <div className="text-white text-xl hidden sm:block">
-              <span className="font-pacifico text-cyan-400">Newton</span>
-              <span className="font-semibold"> Manyisa</span>
+            <div className="hidden sm:block text-white">
+              <div className="text-lg font-medium text-cyan-300">Newton Manyisa</div>
+              <div className="text-xs text-slate-400">Full-Stack Developer <span className="accent-warm-text">•</span></div>
             </div>
           </a>
 
           {/* ✅ Desktop Nav */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="flex items-center rounded-lg border border-white/10 bg-white/5 p-1">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
-                  className="relative text-gray-300 hover:text-white px-3 py-2 text-sm font-medium cursor-pointer"
+                  className="relative rounded-md px-3 py-2 text-base font-normal text-slate-300 transition-colors hover:text-white"
                 >
                   {link.name}
                   <motion.div
-                    className="absolute bottom-0 left-0 h-0.5 bg-cyan-400"
+                    className="absolute inset-x-2 bottom-1 h-px accent-warm-bg"
                     initial={{ width: 0 }}
-                    whileHover={{ width: '100%' }}
+                    whileHover={{ width: 'calc(100% - 1rem)' }}
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
                 </a>
@@ -76,7 +76,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white"
+              className="rounded-md border border-white/10 bg-white/5 p-2 text-slate-300 transition-colors hover:text-white"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
@@ -103,9 +103,9 @@ const Navbar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="md:hidden bg-gray-900 bg-opacity-95 backdrop-filter backdrop-blur-lg absolute w-full"
+            className="absolute w-full border-b border-white/10 bg-slate-950/95 backdrop-blur-xl md:hidden"
           >
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <div className="mx-auto w-full max-w-7xl px-4 pb-4 pt-2 sm:px-6">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.name}
@@ -117,7 +117,7 @@ const Navbar = () => {
                   <a
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    className="block rounded-md border border-transparent px-3 py-3 text-base font-normal text-slate-300 transition-colors hover:border-white/10 hover:bg-white/5 hover:text-white"
                   >
                     {link.name}
                   </a>

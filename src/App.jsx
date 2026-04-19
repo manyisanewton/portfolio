@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
+import SystemsMap from './components/SystemsMap';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
@@ -10,6 +11,7 @@ import Education from './components/Education';
 import Footer from './components/Footer'; 
 import WhatsAppButton from './components/WhatsAppButton';
 import Chatbot from './components/Chatbox';
+import './App.css';
 
 
 import { CursorProvider } from './context/CursorContext';
@@ -23,6 +25,7 @@ function App() {
         <Navbar />
         <main className="pt-5">
           <Home />
+          <SystemsMap />
           <About />
           <Services /> 
           <Education /> 
