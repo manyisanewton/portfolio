@@ -25,8 +25,6 @@ const Projects = () => {
 
       <div className="section-wrap relative z-10">
         <span className="section-kicker">Projects</span>
-        <h2 className="section-heading max-w-3xl">Selected work across commerce, content, and interactive product experiences.</h2>
-        <p className="section-copy">These projects show how I approach interface quality, API integration, user flow, and production-minded frontend execution.</p>
         
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           {projectData.map((project, index) => (

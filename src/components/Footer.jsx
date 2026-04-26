@@ -17,7 +17,7 @@ const Footer = () => {
 
   const usefulLinks = ['Home', 'About', 'Services', 'Skills', 'Projects', 'Contact'];
   const socialLinks = [
-    { icon: <FaLinkedin />, url: 'https://www.linkedin.com/in/manyisa-newton-114781346/', label: 'LinkedIn' },
+    { icon: <FaLinkedin />, url: 'https://www.linkedin.com/in/newton-manyisa-b053733bb/', label: 'LinkedIn' },
     { icon: <FaGithub />, url: 'https://github.com/manyisanewton', label: 'GitHub' },
     { icon: <FaXTwitter />, url: 'https://x.com/ManyisaNewton', label: 'Twitter' },
     { icon: <FaFacebookF />, url: 'https://facebook.com/yourprofile', label: 'Facebook' },
