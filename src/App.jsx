@@ -6,6 +6,7 @@ import SystemsMap from './components/SystemsMap';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
+import FloatingSignals from './components/FloatingSignals';
 import Services from './components/Services'; 
 import Education from './components/Education'; 
 import Footer from './components/Footer'; 
@@ -21,7 +22,8 @@ function App() {
 
   return (
     <CursorProvider>
-      <div className="bg-gray-900">
+      <div className="relative bg-gray-900">
+        <FloatingSignals />
         <Navbar />
         <main className="pt-5">
           <Home />

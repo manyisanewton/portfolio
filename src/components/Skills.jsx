@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Marquee from 'react-fast-marquee';
 import { useCursor } from '../context/CursorContext';
+import InteractiveCard from './InteractiveCard';
 
 // Import all necessary icons
 import {
@@ -68,7 +69,8 @@ const Skills = () => {
         <h2 className="section-heading max-w-3xl">A stack shaped by product delivery, systems work, and frontend craft.</h2>
         <p className="section-copy">I work comfortably across UI implementation, backend logic, infrastructure tools, and the practical teamwork required to ship and support software.</p>
         <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
-          <div className="surface-panel p-6">
+          <InteractiveCard className="surface-panel" intensity={6}>
+          <div className="p-6">
             <h3 className="text-2xl font-bold accent-warm-text mb-4">Frontend</h3>
             <motion.ul variants={listVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-3">
               {skills.frontend.map(skill => (
@@ -76,7 +78,9 @@ const Skills = () => {
               ))}
             </motion.ul>
           </div>
-          <div className="surface-panel p-6">
+          </InteractiveCard>
+          <InteractiveCard className="surface-panel" intensity={6}>
+          <div className="p-6">
             <h3 className="text-2xl font-bold accent-warm-text mb-4">Backend</h3>
             <motion.ul variants={listVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-3">
               {skills.backend.map(skill => (
@@ -84,7 +88,9 @@ const Skills = () => {
               ))}
             </motion.ul>
           </div>
-          <div className="surface-panel p-6">
+          </InteractiveCard>
+          <InteractiveCard className="surface-panel" intensity={6}>
+          <div className="p-6">
             <h3 className="text-2xl font-bold accent-warm-text mb-4">Systems & Tools</h3>
             <motion.ul variants={listVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-3">
               {skills.systems.map(skill => (
@@ -92,7 +98,9 @@ const Skills = () => {
               ))}
             </motion.ul>
           </div>
-          <div className="surface-panel p-6">
+          </InteractiveCard>
+          <InteractiveCard className="surface-panel" intensity={6}>
+          <div className="p-6">
             <h3 className="text-2xl font-bold accent-warm-text mb-4">Professional Strengths</h3>
             <motion.ul variants={listVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="space-y-3">
               {skills.professional.map(skill => (
@@ -100,6 +108,7 @@ const Skills = () => {
               ))}
             </motion.ul>
           </div>
+          </InteractiveCard>
         </div>
       </div>
 

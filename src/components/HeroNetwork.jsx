@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 const NODE_COUNT_DESKTOP = 34;
 const NODE_COUNT_MOBILE = 18;
 const CONNECTION_DISTANCE = 220;
+const TRAIL_COUNT = 4;
 
 const createNodes = (width, height, count) =>
   Array.from({ length: count }, () => ({
@@ -14,6 +15,22 @@ const createNodes = (width, height, count) =>
     glowPhase: Math.random() * Math.PI * 2,
     glowSpeed: 0.008 + Math.random() * 0.018,
   }));
+
+const createTrails = (nodes, count) => {
+  if (nodes.length < 2) return [];
+
+  return Array.from({ length: count }, (_, index) => {
+    const startIndex = Math.floor((index / count) * nodes.length);
+    const endIndex = (startIndex + Math.max(3, Math.floor(nodes.length / 5))) % nodes.length;
+
+    return {
+      from: startIndex,
+      to: endIndex,
+      progress: Math.random(),
+      speed: 0.0012 + Math.random() * 0.0018,
+    };
+  });
+};
 
 const HeroNetwork = () => {
   const canvasRef = useRef(null);
@@ -30,6 +47,7 @@ const HeroNetwork = () => {
     let height = 0;
     let dpr = Math.min(window.devicePixelRatio || 1, 2);
     let nodes = [];
+    let trails = [];
     let lastTimestamp = 0;
 
     const resize = () => {
@@ -48,6 +66,7 @@ const HeroNetwork = () => {
 
       const count = width < 768 ? NODE_COUNT_MOBILE : NODE_COUNT_DESKTOP;
       nodes = createNodes(width, height, count);
+      trails = createTrails(nodes, width < 768 ? 2 : TRAIL_COUNT);
     };
 
     const drawFrame = (timestamp) => {
@@ -68,6 +87,8 @@ const HeroNetwork = () => {
         node.y = Math.max(0, Math.min(height, node.y));
       }
 
+      const activeConnections = [];
+
       for (let i = 0; i < nodes.length; i += 1) {
         for (let j = i + 1; j < nodes.length; j += 1) {
           const a = nodes[i];
@@ -84,8 +105,47 @@ const HeroNetwork = () => {
             context.strokeStyle = `rgba(186, 230, 253, ${opacity})`;
             context.lineWidth = 1.3;
             context.stroke();
+            activeConnections.push([a.x, a.y, b.x, b.y, opacity]);
           }
         }
+      }
+
+      for (const trail of trails) {
+        const startNode = nodes[trail.from];
+        const endNode = nodes[trail.to];
+        if (!startNode || !endNode) continue;
+
+        trail.progress += trail.speed * delta * 16.67;
+        if (trail.progress > 1) trail.progress = 0;
+
+        const x = startNode.x + (endNode.x - startNode.x) * trail.progress;
+        const y = startNode.y + (endNode.y - startNode.y) * trail.progress;
+
+        context.beginPath();
+        context.arc(x, y, 2.4, 0, Math.PI * 2);
+        context.fillStyle = 'rgba(241, 90, 36, 0.95)';
+        context.shadowColor = 'rgba(241, 90, 36, 0.55)';
+        context.shadowBlur = 16;
+        context.fill();
+        context.shadowBlur = 0;
+
+        context.beginPath();
+        context.moveTo(startNode.x, startNode.y);
+        context.lineTo(x, y);
+        context.strokeStyle = 'rgba(241, 90, 36, 0.16)';
+        context.lineWidth = 1;
+        context.stroke();
+      }
+
+      for (let i = 0; i < Math.min(activeConnections.length, 12); i += 1) {
+        const [x1, y1, x2, y2, opacity] = activeConnections[i];
+        const mx = (x1 + x2) / 2;
+        const my = (y1 + y2) / 2;
+
+        context.beginPath();
+        context.arc(mx, my, 1.2, 0, Math.PI * 2);
+        context.fillStyle = `rgba(255, 255, 255, ${opacity * 0.7})`;
+        context.fill();
       }
 
       for (const node of nodes) {

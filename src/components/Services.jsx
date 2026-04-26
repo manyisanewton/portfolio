@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useCursor } from '../context/CursorContext';
 import { FaReact, FaServer, FaCode, FaDatabase, FaChalkboardTeacher, FaTools } from 'react-icons/fa';
+import InteractiveCard from './InteractiveCard';
 
 const servicesData = [
   {
@@ -71,17 +72,22 @@ const Services = () => {
           transition={{ staggerChildren: 0.2 }}
         >
           {servicesData.map((service, index) => (
-            <motion.div
+            <InteractiveCard
               key={index}
-              variants={cardVariants}
-              className="surface-panel flex min-h-[260px] flex-col p-6 sm:p-7"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
+              className="surface-panel"
+              intensity={7}
             >
-              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-md border accent-warm-border accent-warm-tint text-2xl accent-warm-text">{service.icon}</div>
-              <h3 className="text-xl font-semibold text-white sm:text-2xl">{service.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">{service.description}</p>
-            </motion.div>
+              <motion.div
+                variants={cardVariants}
+                className="flex min-h-[260px] flex-col p-6 sm:p-7"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-md border accent-warm-border accent-warm-tint text-2xl accent-warm-text">{service.icon}</div>
+                <h3 className="text-xl font-semibold text-white sm:text-2xl">{service.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-slate-300 sm:text-base">{service.description}</p>
+              </motion.div>
+            </InteractiveCard>
           ))}
         </motion.div>
       </div>

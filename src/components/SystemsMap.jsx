@@ -11,6 +11,7 @@ import {
   FaStarHalfAlt,
   FaTools,
 } from 'react-icons/fa';
+import InteractiveCard from './InteractiveCard';
 
 const capabilityItems = [
   {
@@ -177,6 +178,7 @@ const SystemsMap = () => {
             <GhostCard item={nextItem} side="right" />
             <div className="relative z-10 w-full max-w-[360px]">
               <AnimatePresence mode="wait" custom={direction}>
+                <InteractiveCard className="rounded-[24px]" intensity={7}>
                 <motion.article
                   key={activeItem.title}
                   custom={direction}
@@ -216,6 +218,7 @@ const SystemsMap = () => {
                     ))}
                   </div>
                 </motion.article>
+                </InteractiveCard>
               </AnimatePresence>
             </div>
           </div>

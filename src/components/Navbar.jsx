@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCursor } from '../context/CursorContext';
 import { FiMenu, FiX } from 'react-icons/fi';
@@ -6,6 +6,8 @@ import profilePic from '../assets/images/newton-profile.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeHref, setActiveHref] = useState('#home');
+  const [hoveredHref, setHoveredHref] = useState(null);
   const { setCursorVariant } = useCursor();
 
   const handleMouseEnter = () => setCursorVariant('link');
@@ -26,6 +28,26 @@ const Navbar = () => {
     visible: { y: 0, opacity: 1 },
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navLinks
+        .map((link) => document.querySelector(link.href))
+        .filter(Boolean);
+
+      let current = '#home';
+      sections.forEach((section) => {
+        const top = section.offsetTop - 140;
+        if (window.scrollY >= top) current = `#${section.id}`;
+      });
+
+      setActiveHref(current);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/75 backdrop-blur-xl">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -41,31 +63,42 @@ const Navbar = () => {
             <img
               src={profilePic}
               alt="Newton Manyisa Logo"
-              className="h-11 w-11 rounded-full object-cover border border-white/15 group-hover:border-cyan-400 transition-colors duration-300"
+              className="h-11 w-11 rounded-full object-cover border border-white/15 transition-colors duration-300 group-hover:border-orange-400/60"
             />
             <div className="hidden sm:block text-white">
-              <div className="text-lg font-medium text-cyan-300">Newton Manyisa</div>
+              <div className="text-lg font-medium text-white">Newton <span className="accent-warm-text">Manyisa</span></div>
               <div className="text-xs text-slate-400">Full-Stack Developer <span className="accent-warm-text">•</span></div>
             </div>
           </a>
 
           {/* ✅ Desktop Nav */}
           <div className="hidden md:block">
-            <div className="flex items-center rounded-lg border border-white/10 bg-white/5 p-1">
+            <div className="relative flex items-center rounded-2xl border border-white/10 bg-white/[0.04] p-1.5 shadow-[0_10px_30px_rgba(2,6,23,0.22)]">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
-                  className="relative rounded-md px-3 py-2 text-base font-normal text-slate-300 transition-colors hover:text-white"
+                  onFocus={() => setHoveredHref(link.href)}
+                  onBlur={() => setHoveredHref(null)}
+                  onMouseOver={() => setHoveredHref(link.href)}
+                  onMouseOut={() => setHoveredHref(null)}
+                  className={`relative z-10 rounded-xl px-4 py-2.5 text-[15px] font-medium transition-all ${
+                    activeHref === link.href
+                      ? 'text-white border border-orange-400/20 bg-white/[0.05]'
+                      : hoveredHref === link.href
+                        ? 'text-white border border-white/10 bg-white/[0.04]'
+                        : 'text-slate-300 border border-transparent'
+                  }`}
                 >
                   {link.name}
-                  <motion.div
-                    className="absolute inset-x-2 bottom-1 h-px accent-warm-bg"
-                    initial={{ width: 0 }}
-                    whileHover={{ width: 'calc(100% - 1rem)' }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  <span
+                    className={`absolute bottom-1.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full transition-all ${
+                      activeHref === link.href
+                        ? 'bg-orange-400 opacity-100 shadow-[0_0_10px_rgba(241,90,36,0.65)]'
+                        : 'bg-transparent opacity-0'
+                    }`}
                   />
                 </a>
               ))}
@@ -76,7 +109,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="rounded-md border border-white/10 bg-white/5 p-2 text-slate-300 transition-colors hover:text-white"
+              className="rounded-xl border border-white/10 bg-white/[0.04] p-2.5 text-slate-300 transition-colors hover:border-orange-400/30 hover:text-white"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
@@ -117,7 +150,11 @@ const Navbar = () => {
                   <a
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="block rounded-md border border-transparent px-3 py-3 text-base font-normal text-slate-300 transition-colors hover:border-white/10 hover:bg-white/5 hover:text-white"
+                    className={`block rounded-xl border px-3 py-3 text-base font-medium transition-colors ${
+                      activeHref === link.href
+                        ? 'border-orange-400/25 bg-white/[0.05] text-white'
+                        : 'border-transparent text-slate-300 hover:border-white/10 hover:bg-white/5 hover:text-white'
+                    }`}
                   >
                     {link.name}
                   </a>

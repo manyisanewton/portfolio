@@ -44,7 +44,7 @@ const Home = () => {
               onMouseLeave={handleMouseLeave}
               className="section-kicker"
             >
-              Full-Stack Developer | Frontend Engineer
+              Full-Stack Developer 
             </span>
 
             <h1

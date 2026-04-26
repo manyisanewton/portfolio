@@ -49,14 +49,14 @@ const journeyData = [
   {
     type: 'education',
     icon: <FaGraduationCap />,
-    title: 'Certificate of Completion',
+    title: 'Artificial Intelligence Part Time Course',
     subtitle: 'Artificial Intelligence Part Time Course | Moringa School',
     date: 'Jul 15, 2025 - Aug 8, 2025',
   },
   {
     type: 'education',
     icon: <FaGraduationCap />,
-    title: 'Apply AI: Update Your Resume',
+    title: 'Cisco Certified Network Associate (CCNA) Certification',
     subtitle: 'ICT Authority, Kenya | Cisco Networking Academy',
     date: 'Apr 11, 2026',
   },
