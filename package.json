@@ -8,7 +8,8 @@
     "build": "vite build",
     "lighthouse:report": "node scripts/generate-lighthouse.js",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@google-cloud/dialogflow": "^7.4.0",
@@ -23,6 +24,7 @@
     "uuid": "^13.0.0"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.40.1",
     "@eslint/js": "^9.30.1",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
@@ -37,6 +39,7 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.3",
     "tailwindcss-cli": "^0.1.2",
-    "vite": "^7.0.4"
+    "vite": "^7.0.4",
+    "wrangler": "^4.99.0"
   }
 }
