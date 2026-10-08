@@ -16,9 +16,9 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
+    { name: 'Focus', href: '#services' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Journey', href: '#education' },
+    { name: 'Journey', href: '#journey' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -49,31 +49,39 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/75 backdrop-blur-xl">
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between gap-6">
+    <nav className="pointer-events-none fixed inset-x-0 top-4 z-50">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+        <div
+          className="pointer-events-auto mx-auto flex h-16 w-full items-center justify-between gap-3 rounded-[2rem] border bg-emerald-50/75 px-3 shadow-[0_12px_35px_rgba(15,23,42,0.10)] backdrop-blur-xl lg:w-fit lg:px-4"
+          style={{ borderColor: 'var(--border-medium)' }}
+        >
 
-          {/* ✅ Logo Section */}
+          {/* Logo Section */}
           <a
             href="#home"
-            className="cursor-pointer group flex items-center space-x-3"
+            className="group flex flex-none cursor-pointer items-center gap-3"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
             <img
               src={profilePic}
               alt="Newton Manyisa Logo"
-              className="h-11 w-11 rounded-full object-cover border border-white/15 transition-colors duration-300 group-hover:border-orange-400/60"
+              className="h-10 w-10 rounded-full border object-cover transition-colors duration-300 group-hover:border-cyan-400/60"
+              style={{ borderColor: 'var(--border-light)' }}
             />
-            <div className="hidden sm:block text-white">
-              <div className="text-lg font-medium text-white">Newton <span className="accent-warm-text">Manyisa</span></div>
-              <div className="text-xs text-slate-400">Full-Stack Developer <span className="accent-warm-text">•</span></div>
+            <div className="block">
+              <div className="whitespace-nowrap font-display text-sm font-semibold text-slate-900">
+                Newton <span className="text-cyan-500">Manyisa</span>
+              </div>
+              <div className="whitespace-nowrap text-[10px] font-medium text-slate-500">
+                Full-Stack Developer
+              </div>
             </div>
           </a>
 
-          {/* ✅ Desktop Nav */}
-          <div className="hidden md:block">
-            <div className="relative flex items-center rounded-2xl border border-white/10 bg-white/[0.04] p-1.5 shadow-[0_10px_30px_rgba(2,6,23,0.22)]">
+          {/* Desktop Nav */}
+          <div className="hidden lg:block">
+            <div className="relative flex items-center gap-1">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
@@ -84,20 +92,26 @@ const Navbar = () => {
                   onBlur={() => setHoveredHref(null)}
                   onMouseOver={() => setHoveredHref(link.href)}
                   onMouseOut={() => setHoveredHref(null)}
-                  className={`relative z-10 rounded-xl px-4 py-2.5 text-[15px] font-medium transition-all ${
+                  className={`relative z-10 rounded-full px-4 py-2.5 text-[15px] font-medium transition-all ${
                     activeHref === link.href
-                      ? 'text-white border border-orange-400/20 bg-white/[0.05]'
+                      ? 'text-white border border-transparent'
                       : hoveredHref === link.href
-                        ? 'text-white border border-white/10 bg-white/[0.04]'
-                        : 'text-slate-300 border border-transparent'
+                        ? 'text-cyan-600 border border-cyan-200 bg-cyan-50'
+                        : 'text-slate-600 border border-transparent hover:text-slate-900 hover:bg-slate-100'
                   }`}
+                  style={{
+                    background: activeHref === link.href ? 'var(--color-cyan)' : undefined,
+                    boxShadow: activeHref === link.href ? '0 4px 14px rgba(0,212,255,0.35)' : undefined,
+                  }}
                 >
                   {link.name}
                   <span
                     className={`absolute bottom-1.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full transition-all ${
                       activeHref === link.href
-                        ? 'bg-orange-400 opacity-100 shadow-[0_0_10px_rgba(241,90,36,0.65)]'
-                        : 'bg-transparent opacity-0'
+                        ? 'bg-white opacity-100'
+                        : hoveredHref === link.href
+                          ? 'bg-cyan-400 opacity-50'
+                          : 'bg-transparent opacity-0'
                     }`}
                   />
                 </a>
@@ -105,11 +119,12 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* ✅ Mobile Menu Toggle */}
-          <div className="md:hidden flex items-center">
+          {/* Mobile Menu Toggle */}
+          <div className="flex items-center lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="rounded-xl border border-white/10 bg-white/[0.04] p-2.5 text-slate-300 transition-colors hover:border-orange-400/30 hover:text-white"
+              className="rounded-xl border bg-white p-2.5 text-slate-600 transition-colors hover:border-cyan-300 hover:text-cyan-600 hover:bg-cyan-50"
+              style={{ borderColor: 'var(--border-light)' }}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
@@ -129,16 +144,17 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* ✅ Mobile Menu */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute w-full border-b border-white/10 bg-slate-950/95 backdrop-blur-xl md:hidden"
+            className="pointer-events-auto absolute left-4 right-4 top-[calc(100%+0.75rem)] rounded-3xl border bg-white/95 shadow-xl backdrop-blur-xl lg:hidden"
+            style={{ borderColor: 'var(--border-light)' }}
           >
-            <div className="mx-auto w-full max-w-7xl px-4 pb-4 pt-2 sm:px-6">
+            <div className="mx-auto w-full px-3 py-3">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.name}
@@ -152,8 +168,8 @@ const Navbar = () => {
                     onClick={() => setIsOpen(false)}
                     className={`block rounded-xl border px-3 py-3 text-base font-medium transition-colors ${
                       activeHref === link.href
-                        ? 'border-orange-400/25 bg-white/[0.05] text-white'
-                        : 'border-transparent text-slate-300 hover:border-white/10 hover:bg-white/5 hover:text-white'
+                        ? 'border-cyan-200 bg-cyan-50 text-cyan-600'
+                        : 'border-transparent text-slate-600 hover:border-slate-200 hover:bg-slate-100 hover:text-slate-900'
                     }`}
                   >
                     {link.name}

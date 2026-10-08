@@ -40,7 +40,7 @@ const InteractiveCard = ({ children, className = '', intensity = 10 }) => {
         animate={{ opacity: hovered ? 1 : 0 }}
         transition={{ duration: 0.2 }}
         style={{
-          background: `radial-gradient(circle at ${position.x}% ${position.y}%, rgba(241, 90, 36, 0.18), transparent 26%), radial-gradient(circle at ${position.x}% ${position.y}%, rgba(34, 211, 238, 0.12), transparent 48%)`,
+          background: `radial-gradient(circle at ${position.x}% ${position.y}%, rgba(0, 136, 255, 0.18), transparent 26%), radial-gradient(circle at ${position.x}% ${position.y}%, rgba(34, 211, 238, 0.12), transparent 48%)`,
         }}
       />
       <motion.div
@@ -48,10 +48,10 @@ const InteractiveCard = ({ children, className = '', intensity = 10 }) => {
         animate={{ opacity: hovered ? 1 : 0 }}
         transition={{ duration: 0.2 }}
         style={{
-          background: `linear-gradient(135deg, rgba(255,255,255,0.08), transparent 35%, transparent 65%, rgba(255,255,255,0.04))`,
+          background: `linear-gradient(135deg, rgba(0,0,0,0.04), transparent 35%, transparent 65%, rgba(0,0,0,0.02))`,
           boxShadow: hovered
-            ? 'inset 0 1px 0 rgba(255,255,255,0.12), 0 18px 40px rgba(3,7,18,0.32), 0 0 30px rgba(241,90,36,0.08)'
-            : 'inset 0 1px 0 rgba(255,255,255,0.04), 0 18px 40px rgba(3,7,18,0.18)',
+            ? 'inset 0 1px 0 rgba(255,255,255,0.6), 0 18px 40px rgba(2,6,23,0.12), 0 0 30px rgba(0,136,255,0.12)'
+            : 'inset 0 1px 0 rgba(255,255,255,0.4), 0 18px 40px rgba(2,6,23,0.06)',
         }}
       />
       <div className="relative z-10" style={{ transform: 'translateZ(18px)' }}>
