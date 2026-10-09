@@ -6,7 +6,7 @@ const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const distDir = path.join(rootDir, 'dist');
 const templatePath = path.join(distDir, 'index.html');
 const siteUrl = 'https://newton-momanyi-manyisa.vercel.app';
-const socialImage = `${siteUrl}/newton-manyisa-social-preview.png`;
+const socialImage = `${siteUrl}/newton-manyisa-social-preview-v2.jpg`;
 
 const projects = [
   {

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 export const SITE_URL = 'https://newton-momanyi-manyisa.vercel.app';
-export const DEFAULT_SOCIAL_IMAGE = `${SITE_URL}/newton-manyisa-social-preview.png`;
+export const DEFAULT_SOCIAL_IMAGE = `${SITE_URL}/newton-manyisa-social-preview-v2.jpg`;
 
 const setMeta = (attribute, key, content) => {
   let element = document.head.querySelector(`meta[${attribute}="${key}"]`);
@@ -34,8 +34,10 @@ const SEO = ({
     setMeta('property', 'og:type', type);
     setMeta('property', 'og:url', url);
     setMeta('property', 'og:image', image);
-    setMeta('property', 'og:image:width', '1730');
-    setMeta('property', 'og:image:height', '909');
+    setMeta('property', 'og:image:secure_url', image);
+    setMeta('property', 'og:image:type', 'image/jpeg');
+    setMeta('property', 'og:image:width', '1200');
+    setMeta('property', 'og:image:height', '630');
     setMeta('property', 'og:image:alt', imageAlt);
     setMeta('property', 'og:site_name', 'Newton Manyisa');
     setMeta('name', 'twitter:card', 'summary_large_image');
