@@ -1,0 +1,62 @@
+# Newton Manyisa — Full Portfolio Context
+
+## Professional summary
+
+Newton Manyisa is a Nairobi-based full-stack software developer focused on practical production systems. His work spans responsive web interfaces, backend APIs, database-backed applications, ERPNext customization, AI-assisted document workflows, workflow automation, and local payment integrations.
+
+He works with React, Next.js, TypeScript, JavaScript, Python, Flask, Node.js, C#, ASP.NET Core, PostgreSQL, ERPNext, Frappe Framework, n8n, Zoho, Docker, Ollama, Hugging Face, OCR, and the Safaricom M-Pesa Daraja API.
+
+## Work and education
+
+- Project Coordinator and Software Developer at Norwa Africa, Nairobi, from November 2024 to present.
+- Volunteer Technical Mentor at Moringa School from November 2024 to July 2025.
+- ICT and Computer Studies Teacher at Gracefields International School from 2023 to 2024.
+- Full-Stack Web Development Certificate from Moringa School in 2025.
+- BSc Computer Science, Upper Division, from the University of Nairobi, 2019 to 2022.
+- Artificial Intelligence Part-Time Course at Moringa School, July to August 2025.
+- Cisco Certified Network Associate training through Cisco Networking Academy, April 2026.
+
+## Project evidence
+
+### AI-Powered Water Treatment Quotation Generator
+
+An AI-assisted quotation workflow for water-treatment teams. It processes uploaded water-analysis documents using OCR and AI, supports proposal generation, and produces PDF and Word outputs. The workflow reduced quotation preparation from approximately five hours to under ten minutes. Technologies include Python, Flask, Hugging Face, Ollama, JavaScript, OCR, Docker, and Hostinger.
+
+Case study: https://newton-momanyi-manyisa.vercel.app/project/ai-powered-water-treatment-quotation-generator
+
+### Vortexus Industrial Marketplace
+
+An industrial e-commerce marketplace built with Blazor, ASP.NET Core, C#, SQL Server, and the Safaricom M-Pesa Daraja API. The project includes catalog, order, authentication, and STK Push payment workflows.
+
+Case study: https://newton-momanyi-manyisa.vercel.app/project/vortexus-industrial-marketplace
+Live product: https://reesolmart.com/
+
+### Nelda Engineering Water Treatment Website
+
+A React product-catalog website connected to ERPNext data. It uses React Query, React Router, debounced search, pagination, Tailwind CSS, Framer Motion, and SweetAlert2.
+
+Case study: https://newton-momanyi-manyisa.vercel.app/project/nelda-engineering-water-treatment-website
+
+### ERPNext Customization and Workflow Automation
+
+ERPNext and Frappe customization across sales, HR, inventory, reporting, and operational workflows. Integrations include Zoho, n8n, Python, JavaScript, and REST APIs.
+
+Case study: https://newton-momanyi-manyisa.vercel.app/project/erpnext-customization-workflow-automation
+
+### Norwa Africa Website
+
+A React and Flask company platform with PostgreSQL, customer-support chatbot integration, cPanel deployment, Nginx, and Docker.
+
+Case study: https://newton-momanyi-manyisa.vercel.app/project/norwa-africa-website
+
+## Contact and identity
+
+- Name: Newton Manyisa
+- Role: Full-Stack Software Developer
+- Location: Nairobi, Kenya
+- Email: manyisanewton26@gmail.com
+- GitHub: https://github.com/manyisanewton
+- LinkedIn: https://www.linkedin.com/in/newton-manyisa-b053733bb/
+- X: https://x.com/ManyisaNewton
+- Portfolio: https://newton-momanyi-manyisa.vercel.app/
+

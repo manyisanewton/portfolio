@@ -46,7 +46,7 @@ export const projectData = [
     tech: ['Blazor', 'ASP.NET Core', 'C#', 'M-Pesa Daraja API', 'SQL Server'],
     imageUrl: vortexusImg,
     githubUrl: 'https://github.com/manyisanewton/vortexus-marketplace',
-    liveUrl: 'https://store.vortexusindustrial.com/',
+    liveUrl: 'https://reesolmart.com/',
   },
   {
     title: 'Nelda Engineering — Water Treatment Website',

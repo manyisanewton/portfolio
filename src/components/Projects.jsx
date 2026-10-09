@@ -6,7 +6,7 @@ import { projectData } from '../data/projects.js';
 import { useCursor } from '../context/CursorContext';
 import { TiltCard, MagneticButton } from './ui';
 
-const slugify = (str) => str.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+const slugify = (str) => str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 const Projects = () => {
   const { setCursorVariant } = useCursor();
@@ -73,35 +73,14 @@ const Projects = () => {
                   >
                     <div className="grid grid-cols-1 lg:grid-cols-2">
                     {/* Image Side */}
-                    <div className={`relative min-h-[320px] overflow-hidden lg:min-h-[460px] ${!isEven ? 'lg:order-2' : ''}`}>
+                    <div className={`relative min-h-[300px] overflow-hidden bg-slate-100 sm:min-h-[380px] lg:min-h-[460px] ${!isEven ? 'lg:order-2' : ''}`}>
                       <motion.img
                         src={project.imageUrl}
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-700"
-                        whileHover={{ scale: 1.05 }}
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700"
+                        whileHover={{ scale: 1.025 }}
                         transition={{ type: 'spring', stiffness: 150 }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent lg:from-black/50 lg:via-black/10 lg:to-transparent" />
-
-                      {/* Overlay Content on Image */}
-                      <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                        <div className="max-w-md">
-                          <span className="badge badge-cyan mb-4 inline-block">{project.tech[0]}</span>
-                          <h3 className="font-display font-semibold text-2xl sm:text-3xl lg:text-4xl text-white mb-3 leading-tight">
-                            {project.title}
-                          </h3>
-                          <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-6 line-clamp-2">
-                            {project.shortDescription}
-                          </p>
-                          <div className="flex flex-wrap gap-2">
-                            {project.tech.slice(1, 5).map((t) => (
-                              <span key={t} className="badge badge-neutral text-xs bg-white/20 text-white border-white/30 hover:bg-white/30">
-                                {t}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
                     </div>
 
                     {/* Content Side */}

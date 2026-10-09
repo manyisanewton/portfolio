@@ -1,0 +1,22 @@
+{
+  "redirects": [
+    {
+      "source": "/project/nelda-engineering--water-treatment-website",
+      "destination": "/project/nelda-engineering-water-treatment-website",
+      "permanent": true
+    },
+    {
+      "source": "/project/erpnext-customization--workflow-automation",
+      "destination": "/project/erpnext-customization-workflow-automation",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    { "source": "/project/ai-powered-water-treatment-quotation-generator", "destination": "/project/ai-powered-water-treatment-quotation-generator/index.html" },
+    { "source": "/project/vortexus-industrial-marketplace", "destination": "/project/vortexus-industrial-marketplace/index.html" },
+    { "source": "/project/nelda-engineering-water-treatment-website", "destination": "/project/nelda-engineering-water-treatment-website/index.html" },
+    { "source": "/project/erpnext-customization-workflow-automation", "destination": "/project/erpnext-customization-workflow-automation/index.html" },
+    { "source": "/project/norwa-africa-website", "destination": "/project/norwa-africa-website/index.html" },
+    { "source": "/:path*", "destination": "/index.html" }
+  ]
+}

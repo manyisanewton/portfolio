@@ -1,111 +1,53 @@
-# Newton Manyisa - Full-Stack Developer Portfolio
+# Newton Manyisa — Full-Stack Developer Portfolio
 
-A modern, animated, and fully responsive portfolio website built with React, Tailwind CSS, and Framer Motion to showcase my skills, projects, and professional journey.
+Portfolio and production case studies for **Newton Manyisa**, a full-stack software developer based in Nairobi, Kenya.
 
-**Live Demo:** https://por[text](src/hooks/api)tfolio-1-zosc.onrender.com/
+**Live portfolio:** [newton-momanyi-manyisa.vercel.app](https://newton-momanyi-manyisa.vercel.app/)
 
-![Portfolio Screenshot](./public/screenshot.png)
+![Newton Manyisa portfolio](./public/screenshot.png)
 
----
+## Expertise
 
-## ✨ Features
+- Frontend engineering with React, Next.js, TypeScript, Tailwind CSS, and Framer Motion
+- Backend systems with Python, Flask, Node.js, C#, ASP.NET Core, and PostgreSQL
+- ERPNext and Frappe Framework customization
+- AI-assisted workflows with Ollama, Hugging Face, OCR, and document generation
+- Business automation with n8n and Zoho
+- Docker, Linux, CI/CD, cPanel, and cloud deployment
+- Safaricom M-Pesa Daraja and other payment API integrations
 
-This portfolio is designed to be a rich, interactive experience. Key features include:
+## Selected case studies
 
-- **Animated Hero Section:** A welcoming introduction with your photo and a clear call-to-action.
-- **Professional "About Me" Section:** Features key statistics and dual "Let's Talk" / "Download CV" call-to-actions.
-- **Dynamic Services Showcase:** Highlights your core competencies with clean, animated cards.
-- **Unique Skills Section:** A dual-format display with a clean, three-column text list for scannability and a colorful, continuous marquee of technology icons for visual appeal.
-- **Smart Education & Journey Timeline:** A space-efficient, two-column layout presenting formal education and practical experience.
-- **Immersive Projects Section:** Full-bleed image cards with a subtle video background and "reveal on hover" details.
-- **Functional Contact Form:** A clean, user-friendly form that sends emails directly to your inbox using Web3Forms, complete with beautiful `SweetAlert2` notifications for success and error states.
-- **Comprehensive Footer:** Includes contact info, availability status, useful links, and a unique "Digital Craftsmanship" section with interactive tooltips.
-- **Custom Cursor:** A unique, interactive cursor that provides a premium feel and changes state on hover and click.
-- **Floating WhatsApp Button:** A persistent, easy-to-use button for immediate contact.
-- **Responsive Design:** Fully responsive layout with an animated hamburger menu for seamless navigation on all devices.
-- **Smooth Scrolling:** Implemented with `react-scroll` for elegant navigation between sections.
+- [AI-Powered Water Treatment Quotation Generator](https://newton-momanyi-manyisa.vercel.app/project/ai-powered-water-treatment-quotation-generator)
+- [Vortexus Industrial Marketplace](https://newton-momanyi-manyisa.vercel.app/project/vortexus-industrial-marketplace)
+- [Nelda Engineering Water Treatment Website](https://newton-momanyi-manyisa.vercel.app/project/nelda-engineering-water-treatment-website)
+- [ERPNext Customization and Workflow Automation](https://newton-momanyi-manyisa.vercel.app/project/erpnext-customization-workflow-automation)
+- [Norwa Africa Website](https://newton-momanyi-manyisa.vercel.app/project/norwa-africa-website)
 
----
+## Technology
 
-## 🛠️ Tech Stack & Tools
+React 19, Vite, React Router, Tailwind CSS, Framer Motion, React Icons, Web3Forms, and Playwright.
 
-This project leverages a modern, efficient tech stack to deliver a high-performance, visually stunning experience.
+## Local development
 
-- **Frontend:**
+```bash
+git clone git@github.com:manyisanewton/portfolio.git
+cd portfolio
+npm install
+npm run dev
+```
 
-  - [**React**](https://reactjs.org/) (UI Library)
-  - [**Vite**](https://vitejs.dev/) (Build Tool)
-  - [**Tailwind CSS**](https://tailwindcss.com/) (CSS Framework)
-  - [**Framer Motion**](https://www.framer.com/motion/) (Animation Library)
-  - [**React Icons**](https://react-icons.github.io/react-icons/) (Icons)
-  - [**React Scroll**](https://github.com/fisshy/react-scroll) (Smooth Scrolling)
-  - [**React Fast Marquee**](https://www.react-fast-marquee.com/) (Skills Marquee)
-  - [**SweetAlert2**](https://sweetalert2.github.io/) (Alerts for Contact Form)
-
-- **Backend Services:**
-  - [**Web3Forms**](https://web3forms.com/) (For handling the contact form submissions)
-
----
-
-## 🚀 Getting Started
-
-To get a local copy up and running, follow these simple steps.
-
-### Prerequisites
-
-You need to have [Node.js](https://nodejs.org/) (which includes `npm`) installed on your machine.
-
-### Installation & Setup
-
-1.  **Clone the repository:**
-
-    ```bash
-    git clone https://github.com/your-username/your-portfolio-repo.git
-    ```
-
-2.  **Navigate to the project directory:**
-
-    ```bash
-    cd your-portfolio-repo
-    ```
-
-3.  **Install NPM packages:**
-
-    ```bash
-    npm install
-    ```
-
-4.  **Configure the Contact Form:**
-
-    - Open the `src/components/Contact.jsx` file.
-    - Find the following line:
-      ```javascript
-      const accessKey = "YOUR_ACCESS_KEY_HERE";
-      ```
-    - Replace `'YOUR_ACCESS_KEY_HERE'` with your actual Access Key from [Web3Forms](https://web3forms.com).
-
-5.  **Run the development server:**
-    ```bash
-    npm run dev
-    ```
-    The application will now be running on `http://localhost:5173` (or another available port).
-
-### Building for Production
-
-To create a static, optimized build of the application for deployment:
+Create the production build with:
 
 ```bash
 npm run build
 ```
 
-# 👤 Contact Newton Manyisa
+The build also generates static metadata pages for every project case study, plus crawler discovery files for search and AI systems.
 
-###### LiveLink: https://portfolio-1-zosc.onrender.com/
+## Contact
 
-###### Phone: +254799425417
-
-###### LinkedIn: https://www.linkedin.com/in/manyisa-newton-114781346/
-
-###### Email: manyisanewton26@gmail.com
-
-###### GitHub: https://github.com/manyisanewton
+- Email: [manyisanewton26@gmail.com](mailto:manyisanewton26@gmail.com)
+- LinkedIn: [linkedin.com/in/newton-manyisa-b053733bb](https://www.linkedin.com/in/newton-manyisa-b053733bb/)
+- GitHub: [github.com/manyisanewton](https://github.com/manyisanewton)
+- Location: Nairobi, Kenya

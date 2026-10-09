@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useCursor } from '../context/CursorContext';
 import { FiMenu, FiX } from 'react-icons/fi';
 import profilePic from '../assets/images/newton-profile.png';
@@ -9,6 +10,8 @@ const Navbar = () => {
   const [activeHref, setActiveHref] = useState('#home');
   const [hoveredHref, setHoveredHref] = useState(null);
   const { setCursorVariant } = useCursor();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleMouseEnter = () => setCursorVariant('link');
   const handleMouseLeave = () => setCursorVariant('default');
@@ -28,7 +31,39 @@ const Navbar = () => {
     visible: { y: 0, opacity: 1 },
   };
 
+  const handleNavigation = (event, href) => {
+    event.preventDefault();
+    setIsOpen(false);
+
+    if (location.pathname === '/') {
+      const section = document.querySelector(href);
+      if (section) {
+        window.history.pushState(null, '', href);
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+    }
+
+    navigate({ pathname: '/', hash: href });
+  };
+
   useEffect(() => {
+    if (location.pathname !== '/' || !location.hash) return undefined;
+
+    const timer = window.setTimeout(() => {
+      const section = document.querySelector(location.hash);
+      if (section) section.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }, 50);
+
+    return () => window.clearTimeout(timer);
+  }, [location.pathname, location.hash]);
+
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      setActiveHref(null);
+      return undefined;
+    }
+
     const handleScroll = () => {
       const sections = navLinks
         .map((link) => document.querySelector(link.href))
@@ -46,7 +81,7 @@ const Navbar = () => {
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   return (
     <nav className="pointer-events-none fixed inset-x-0 top-4 z-50">
@@ -58,7 +93,8 @@ const Navbar = () => {
 
           {/* Logo Section */}
           <a
-            href="#home"
+            href="/#home"
+            onClick={(event) => handleNavigation(event, '#home')}
             className="group flex flex-none cursor-pointer items-center gap-3"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -85,7 +121,8 @@ const Navbar = () => {
               {navLinks.map((link) => (
                 <a
                   key={link.name}
-                  href={link.href}
+                  href={`/${link.href}`}
+                  onClick={(event) => handleNavigation(event, link.href)}
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                   onFocus={() => setHoveredHref(link.href)}
@@ -164,8 +201,8 @@ const Navbar = () => {
                   transition={{ duration: 0.3, delay: i * 0.1 }}
                 >
                   <a
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
+                    href={`/${link.href}`}
+                    onClick={(event) => handleNavigation(event, link.href)}
                     className={`block rounded-xl border px-3 py-3 text-base font-medium transition-colors ${
                       activeHref === link.href
                         ? 'border-cyan-200 bg-cyan-50 text-cyan-600'

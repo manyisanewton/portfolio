@@ -4,6 +4,49 @@ import { FiArrowRight, FiGithub, FiLinkedin, FiMail, FiExternalLink, FiBarChart2
 import profilePic from '../assets/images/newton-hero-cutout-v3.png';
 import { useCursor } from '../context/CursorContext';
 import { DoodleArrow, MagneticButton } from './ui';
+import SEO, { SITE_URL } from './SEO';
+
+const homeSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      url: `${SITE_URL}/`,
+      name: 'Newton Manyisa',
+      alternateName: 'Newton Manyisa Portfolio',
+      inLanguage: 'en',
+    },
+    {
+      '@type': 'ProfilePage',
+      '@id': `${SITE_URL}/#profile`,
+      url: `${SITE_URL}/`,
+      name: 'Newton Manyisa — Full-Stack Developer',
+      isPartOf: { '@id': `${SITE_URL}/#website` },
+      mainEntity: { '@id': `${SITE_URL}/#person` },
+      inLanguage: 'en',
+    },
+    {
+      '@type': 'Person',
+      '@id': `${SITE_URL}/#person`,
+      name: 'Newton Manyisa',
+      url: `${SITE_URL}/`,
+      image: `${SITE_URL}/apple-touch-icon.png`,
+      jobTitle: 'Full-Stack Software Developer',
+      address: { '@type': 'PostalAddress', addressLocality: 'Nairobi', addressCountry: 'KE' },
+      sameAs: [
+        'https://www.linkedin.com/in/newton-manyisa-b053733bb/',
+        'https://github.com/manyisanewton',
+        'https://x.com/ManyisaNewton',
+      ],
+      knowsAbout: [
+        'React', 'Next.js', 'TypeScript', 'Python', 'Flask', 'Node.js', 'C#',
+        'ASP.NET Core', 'PostgreSQL', 'ERPNext', 'Frappe Framework',
+        'AI workflow automation', 'n8n', 'Docker', 'M-Pesa Daraja API',
+      ],
+    },
+  ],
+};
 
 const Home = () => {
   const { setCursorVariant } = useCursor();
@@ -45,6 +88,13 @@ const Home = () => {
   };
 
   return (
+    <>
+    <SEO
+      title="Newton Manyisa | Full-Stack Developer in Nairobi"
+      description="Newton Manyisa is a full-stack developer in Nairobi building React, Python, ERPNext, AI automation, and payment-integration solutions. View selected case studies."
+      path="/"
+      schema={homeSchema}
+    />
     <section
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden pt-20"
@@ -244,6 +294,7 @@ const Home = () => {
         <FiArrowRight className="h-6 w-6 animate-bounce" />
       </motion.div>
     </section>
+    </>
   );
 };
 

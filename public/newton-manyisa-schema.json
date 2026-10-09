@@ -1,0 +1,122 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://newton-momanyi-manyisa.vercel.app/#person",
+      "name": "Newton Manyisa",
+      "url": "https://newton-momanyi-manyisa.vercel.app/",
+      "image": "https://newton-momanyi-manyisa.vercel.app/apple-touch-icon.png",
+      "jobTitle": "Full-Stack Software Developer",
+      "description": "Newton Manyisa is a Nairobi-based full-stack software developer working across frontend engineering, backend systems, ERPNext and Frappe customization, AI-assisted workflows, business automation, and payment integrations.",
+      "telephone": "+254799425417",
+      "email": "mailto:manyisanewton26@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nairobi",
+        "addressRegion": "Nairobi County",
+        "addressCountry": "KE"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/newton-manyisa-b053733bb/",
+        "https://github.com/manyisanewton",
+        "https://x.com/ManyisaNewton"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Norwa Africa"
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "University of Nairobi"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "Moringa School"
+        }
+      ],
+      "knowsAbout": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "JavaScript",
+        "Tailwind CSS",
+        "Python",
+        "Flask",
+        "Node.js",
+        "C#",
+        "ASP.NET Core",
+        "PostgreSQL",
+        "ERPNext",
+        "Frappe Framework",
+        "Artificial Intelligence Workflows",
+        "Ollama",
+        "Hugging Face",
+        "Optical Character Recognition",
+        "n8n Workflow Automation",
+        "Zoho Integrations",
+        "Docker",
+        "Linux",
+        "M-Pesa Daraja API",
+        "Payment Integrations"
+      ],
+      "workExample": [
+        {
+          "@type": "CreativeWork",
+          "name": "AI-Powered Water Treatment Quotation Generator",
+          "url": "https://newton-momanyi-manyisa.vercel.app/project/ai-powered-water-treatment-quotation-generator"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Vortexus Industrial Marketplace",
+          "url": "https://newton-momanyi-manyisa.vercel.app/project/vortexus-industrial-marketplace"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Nelda Engineering Water Treatment Website",
+          "url": "https://newton-momanyi-manyisa.vercel.app/project/nelda-engineering-water-treatment-website"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "ERPNext Customization and Workflow Automation",
+          "url": "https://newton-momanyi-manyisa.vercel.app/project/erpnext-customization-workflow-automation"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Norwa Africa Website",
+          "url": "https://newton-momanyi-manyisa.vercel.app/project/norwa-africa-website"
+        }
+      ]
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://newton-momanyi-manyisa.vercel.app/#profile",
+      "url": "https://newton-momanyi-manyisa.vercel.app/",
+      "name": "Newton Manyisa — Full-Stack Developer Portfolio",
+      "headline": "Full-Stack Software Developer in Nairobi",
+      "description": "Portfolio, professional experience, technical skills, and production case studies by Newton Manyisa.",
+      "image": "https://newton-momanyi-manyisa.vercel.app/newton-manyisa-social-preview.png",
+      "mainEntity": {
+        "@id": "https://newton-momanyi-manyisa.vercel.app/#person"
+      },
+      "isPartOf": {
+        "@id": "https://newton-momanyi-manyisa.vercel.app/#website"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://newton-momanyi-manyisa.vercel.app/#website",
+      "url": "https://newton-momanyi-manyisa.vercel.app/",
+      "name": "Newton Manyisa",
+      "alternateName": "Newton Manyisa Portfolio",
+      "publisher": {
+        "@id": "https://newton-momanyi-manyisa.vercel.app/#person"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+
+

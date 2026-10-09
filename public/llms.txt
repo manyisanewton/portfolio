@@ -1,0 +1,32 @@
+# Newton Manyisa
+
+> Newton Manyisa is a full-stack software developer in Nairobi, Kenya. He builds production software across frontend engineering, backend systems, ERPNext and Frappe customization, AI-assisted workflows, business automation, and payment integrations.
+
+Canonical portfolio: https://newton-momanyi-manyisa.vercel.app/
+
+## Core expertise
+
+- Frontend: React, Next.js, TypeScript, JavaScript, Tailwind CSS, Framer Motion
+- Backend: Python, Flask, Node.js, C#, ASP.NET Core, REST APIs, PostgreSQL
+- Business systems: ERPNext, Frappe Framework, Zoho, n8n, workflow automation
+- Applied AI: Ollama, Hugging Face, OCR, document processing, quotation generation
+- Platforms: Docker, Linux, CI/CD, cPanel, Hostinger, AWS
+- Payments: Safaricom M-Pesa Daraja STK Push and payment API integrations
+
+## Selected case studies
+
+- [AI-Powered Water Treatment Quotation Generator](https://newton-momanyi-manyisa.vercel.app/project/ai-powered-water-treatment-quotation-generator): Python, Flask, OCR, Ollama, and Hugging Face workflow that reduced quotation preparation from about five hours to under ten minutes.
+- [Vortexus Industrial Marketplace](https://newton-momanyi-manyisa.vercel.app/project/vortexus-industrial-marketplace): Blazor and ASP.NET Core marketplace with M-Pesa Daraja STK Push payments.
+- [Nelda Engineering Water Treatment Website](https://newton-momanyi-manyisa.vercel.app/project/nelda-engineering-water-treatment-website): React product catalog integrated with ERPNext APIs, React Query, search, and pagination.
+- [ERPNext Customization and Workflow Automation](https://newton-momanyi-manyisa.vercel.app/project/erpnext-customization-workflow-automation): ERPNext, Frappe, Zoho, and n8n integrations for sales, HR, and operations workflows.
+- [Norwa Africa Website](https://newton-momanyi-manyisa.vercel.app/project/norwa-africa-website): React and Flask company website with PostgreSQL, chatbot integration, and production deployment.
+
+## Verified profiles and contact
+
+- GitHub: https://github.com/manyisanewton
+- LinkedIn: https://www.linkedin.com/in/newton-manyisa-b053733bb/
+- Email: manyisanewton26@gmail.com
+- Location: Nairobi, Kenya
+
+For expanded project context, education, and experience, see https://newton-momanyi-manyisa.vercel.app/llms-full.txt
+
